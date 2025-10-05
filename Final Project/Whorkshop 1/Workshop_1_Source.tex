@@ -1,0 +1,293 @@
+\documentclass{article}
+
+% --- PAQUETES NECESARIOS ---
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs} % Para tablas profesionales
+\usepackage{geometry} % Para márgenes
+\usepackage{longtable} % Para tablas que pueden saltar de página
+\usepackage{tabularx} % Para ancho de columna adaptable
+\usepackage{multirow} % Para combinar celdas
+\usepackage{enumitem} % Para listas personalizadas
+\usepackage{fancyhdr} % Para encabezados/pies de página
+\usepackage{xcolor} % Para colores
+\usepackage{colortbl} % ¡CORRECCIÓN CLAVE! Necesario para \rowcolor en longtable y tabularx
+\usepackage{graphicx}   % ← Necesario para insertar imágenes
+
+
+% --- CONFIGURACIÓN DE PÁGINA: AJUSTE DE MÁRGENES (Más seguro para el A4) ---
+\geometry{
+ a4paper,
+ total={180mm,267mm}, % Ancho total del texto aumentado ligeramente
+ left=18mm,
+ right=18mm,
+ top=20mm,
+ bottom=20mm,
+}
+
+
+% --- ENCABEZADOS Y PIES DE PÁGINA ---
+\pagestyle{fancy}
+\fancyhead[L]{\textbf{SOFTWARE ENGINEERING SEMINAR}}
+\fancyhead[R]{\textbf{WORKSHOP NO. 1}}
+\fancyfoot[R]{\thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% --- AUTORES Y ASIGNACIÓN ---
+\author{
+    \textbf{David Gerardo Diaz Gomez} (20201020087) \\
+    \textbf{Cristian Arturo Parra Gonzales} (20201578102) \\
+    \textbf{Daniel Mateo Montoya González} (20202020098)
+}
+\title{
+    \textbf{Project Definition and Planning: Workshop No. 1} \\
+    \large \textit{DriveMaster: Subscription-based Management System for Colombian Driving Academies}
+}
+\date{
+    \vspace{0.5cm}
+    \small \textbf{Software Engineering Seminar} \\
+    \small Semester 2025-III \\
+    \small Eng. Carlos Andrés Sierra, M.Sc. \\
+    \small Universidad Distrital Francisco José de Caldas
+}
+
+% --- COMANDO PERSONALIZADO PARA HISTORIAS DE USUARIO (Usando 'tabularx' para un ajuste seguro) ---
+% He agregado un entorno de tabla anidado para asegurar que los Criterios de Aceptación usen todo el ancho disponible.
+\newcommand{\userstorycard}[6]{
+    \noindent\begin{tabularx}{\textwidth}{|X|}
+        \hline
+        \rowcolor[gray]{0.9}
+        \begin{tabularx}{\textwidth}{@{}l X l@{}}
+            \textbf{Title:} #1 & \textbf{Priority:} #2 & \textbf{Estimate:} #3 \\
+        \end{tabularx} \\
+        \hline
+        \textbf{User Story:} \\
+        As a \textbf{#4}, I want to \textbf{#5} so that \textbf{#6}. \\
+        \hline
+        \textbf{Acceptance Criteria (GIVEN/WHEN/THEN):} \\
+        \textbf{Given} [how things begin] \\
+        \textbf{When} [action taken] \\
+        \textbf{Then} [outcome of taking action] \\
+        \hline
+    \end{tabularx}\vspace{0.3cm}
+}
+
+% --- INICIO DEL DOCUMENTO ---
+\begin{document}
+
+\maketitle
+\thispagestyle{fancy}
+
+\section*{Introduction}
+This document presents the foundational artifacts for the "DriveMaster" project, a Subscription-as-a-Service (SaaS) platform designed to manage and ensure regulatory compliance for Colombian driving schools offering licenses A1, B1, C1, A2, B2, C2, A3, B3, and C3. This work fulfills the requirements of Workshop No. 1, providing a solid definition of the business model, user requirements, and initial object-oriented design for the subsequent implementation phases. The project structure is specifically designed to facilitate robust unit testing (JUnit, pytest), acceptance testing (Cucumber), and performance testing (JMeter).
+
+% --- 1. BUSINESS MODEL CANVAS ---
+\section{Business Model Canvas}
+The Business Model Canvas (BMC) for DriveMaster is defined below, focusing on the B2B SaaS licensing model and regulatory adherence.
+
+
+\includegraphics[width=1\textwidth]{{MODEL CANVAS.png}}
+
+
+
+
+% --- 2. USER STORIES ---
+\section{User Stories and Acceptance Criteria}
+The following User Stories are defined with specific acceptance criteria in the Gherkin format (\textbf{Given, When, Then}) to facilitate future validation using \textbf{Apache Cucumber}.
+
+\subsection*{Role 1: Academy Administrative Staff (Secretary)}
+
+% IMPLEMENTACIÓN DE VIÑETAS CON ITEMIZE
+\begin{itemize}[leftmargin=1.5em, itemsep=0.3cm, label=\textbullet]
+
+\item[] \userstorycard{Student Registration}{High}{2 days}{Secretary}{register a new student for a specific license category (e.g., C1)}{their mandatory hours are automatically tracked.}
+{Given the Secretary is logged in and navigates to the registration form, When they enter student data and select 'C1' and click 'Save', Then the student's record is created, and their required hours are set to 25 (Theory) and 20 (Practice) as per the C1 norm.}
+
+\item[] \userstorycard{View Student Progress}{High}{1 day}{Secretary}{view the remaining mandatory hours for any active student}{I can inform them clearly of their progress.}
+{Given an active student (ID 123) is searched in the system, When the Secretary opens their progress dashboard, Then the system displays the total required hours (e.g., 40), hours completed (e.g., 25), and hours pending (e.g., 15).}
+
+\item[] \userstorycard{Instructor Management}{High}{1 day}{Secretary}{assign a new instructor to the system with their license and availability}{they can be assigned to classes.}
+{Given I am in the Instructor Management module, When I register a new instructor, select their license type, and confirm their schedule, Then the instructor appears as 'Available' for scheduling classes that match their license and schedule.}
+
+\item[] \userstorycard{Generate Certificate}{Critical}{3 days}{Secretary}{generate the course completion certificate PDF}{the student can process their license with the regulatory body.}
+{Given the student has 100\% of the mandatory hours completed and all fees paid, When I click 'Generate Final Certificate', Then a PDF is downloaded using the required legal (RUNT/MINTRA simulated) format, and the student's status changes to 'Certified'.}
+
+\item[] \userstorycard{Register Student Payment}{Medium}{1 day}{Secretary}{register a payment made by a student}{their account balance is updated and they can continue with the process.}
+{Given I select an active student's profile, When I register a payment of \$X for 'Practical Hours Package', Then the payment is logged in their financial history, and the system sends a payment confirmation receipt to the student's email.}
+
+\end{itemize}
+
+\subsection*{Role 2: Driving Instructor}
+
+% IMPLEMENTACIÓN DE VIÑETAS CON ITEMIZE
+\begin{itemize}[leftmargin=1.5em, itemsep=0.3cm, label=\textbullet]
+
+\item[] \userstorycard{Start Session Login}{High}{1 day}{Instructor}{log into the platform via secure authentication (Java Backend)}{I can access my schedule and log my class hours.}
+{Given I navigate to the platform's login page, When I enter my credentials and the Java Auth Service verifies them, Then I am redirected to my personalized schedule dashboard.}
+
+\item[] \userstorycard{Complete Class Report}{Critical}{2 days}{Instructor}{mark a class as 'Completed' and record the actual duration}{the student's progress report is updated accurately.}
+{Given I am viewing a scheduled class, When I enter the final duration (e.g., 1 hour) and confirm 'Class Complete', Then the student's profile is credited with 1 practical hour, and the remaining pending hours are reduced by one (Python Backend Logic).}
+
+\item[] \userstorycard{Mark Absence}{Medium}{1 day}{Instructor}{mark a student as 'Absent' from a scheduled class}{the hours are not credited and the student must reschedule.}
+{Given a scheduled class has passed its start time, When I select the student and choose the reason 'Absent (No Show)', Then the class status is marked 'Canceled', and the student receives an email notification.}
+
+\item[] \userstorycard{Vehicle Assignment View}{Medium}{1 day}{Instructor}{view the assigned vehicle for my next practice session}{I can ensure the vehicle is ready and correct for the license type (e.g., C3 vs. B1).}
+{Given I select my upcoming session from the schedule, When the session details load, Then the system displays the vehicle's plate number and the vehicle type (e.g., Heavy Truck for C3).}
+
+\item[] \userstorycard{Report Vehicle Issue}{Medium}{1 day}{Instructor}{report a vehicle maintenance issue}{the Secretary can block the vehicle from being scheduled for future classes.}
+{Given I am viewing a Vehicle profile, When I report a fault (e.g., 'Brake Noise') and click 'Report Issue', Then the vehicle's status changes to 'Maintenance Required' and it is temporarily removed from the available scheduling pool.}
+
+\end{itemize}
+
+\subsection*{Role 3: Student}
+
+% IMPLEMENTACIÓN DE VIÑETAS CON ITEMIZE
+\begin{itemize}[leftmargin=1.5em, itemsep=0.3cm, label=\textbullet]
+
+\item[] \userstorycard{View Progress Chart}{High}{2 days}{Student}{view a graphic representation of my completed versus pending hours (Angular Frontend)}{I can understand how far I am from certification.}
+{Given I am logged into my profile dashboard, When I navigate to 'My Progress', Then the system displays two progress bars: one for theory (X/Y hours) and one for practice (A/B hours).}
+
+\item[] \userstorycard{Self-Schedule Practice}{High}{2 days}{Student}{view available time slots for practical classes}{I can book a session that fits my personal schedule.}
+{Given I am on the 'Schedule Class' page, When I filter by date and time, Then the system only displays slots where an instructor with the correct license type and a free vehicle are available.}
+
+\item[] \userstorycard{Download Certificate}{Medium}{1 day}{Student}{access and download my final certificate}{I can use it as a physical document for my license application.}
+{Given my status is 'Certified' in the system, When I click the 'Download Certificate' link, Then the system serves the RUNT-formatted PDF document for immediate download.}
+
+\item[] \userstorycard{Password Reset}{High}{1 day}{Student}{request a password reset via email}{I can regain access to my account if I forget my password.}
+{Given I click the 'Forgot Password' link on the login page, When I enter my registered email and submit the form, Then the Java Auth Service sends a secure, time-limited link to that email address.}
+
+\item[] \userstorycard{Receive Notification}{High}{1 day}{Student}{receive a notification 24 hours before my class}{I don't miss my scheduled session.}
+{Given I have a class scheduled for tomorrow at 3:00 PM, When the system's scheduled notification job runs, Then I receive a notification (email/SMS) confirming the class time, instructor, and assigned vehicle.}
+
+\end{itemize}
+
+\subsection*{Role 4: DriveMaster System Administrator (SaaS Model)}
+
+% IMPLEMENTACIÓN DE VIÑETAS CON ITEMIZE
+\begin{itemize}[leftmargin=1.5em, itemsep=0.3cm, label=\textbullet]
+
+\item[] \userstorycard{Manage Subscription End Date}{Critical}{2 days}{System Admin}{view and update an Academy's subscription end date}{I can manage their licensing access (SaaS).}
+{Given I search for 'Academy ABC', When I change their subscription end date from 2025-12-31 to 2026-12-31 and save, Then the SubscriptionLicense object is updated in the database, and the Academy's access is secured for the new period.}
+
+\item[] \userstorycard{Revoke License Access}{Critical}{1 day}{System Admin}{revoke an Academy's license access instantly}{I can suspend service for non-payment or policy violation.}
+{Given an Academy's payment is overdue, When I select the Academy and click 'Deactivate Subscription', Then the SubscriptionLicense status changes to 'Suspended', and all associated users are immediately logged out and blocked from future login attempts (Java Auth Service check).}
+
+\item[] \userstorycard{Update Global Regulation}{High}{3 days}{System Admin}{update the mandatory hours for a license category (e.g., A2)}{all Academies instantly adopt the new legal requirement.}
+{Given I am in the Regulatory Update module, When I change the A2 practice hours from 15 to 20 and click 'Apply Global Update', Then the Python Business Logic updates the CourseRegulation data, and all new student registrations will inherit the 20-hour requirement.}
+
+\item[] \userstorycard{Generate Billing Report}{High}{2 days}{System Admin}{generate a usage report for a given month}{I can calculate the billing for each Academy based on their active students.}
+{Given the current month is complete, When I run the 'Monthly Usage Report', Then the system outputs a file detailing the peak number of active student profiles for each subscribed Academy in that month, ready for invoice generation.}
+
+\item[] \userstorycard{Create New System Role}{Medium}{2 days}{System Admin}{create a new system role (e.g., 'Auditor') with specific permissions}{I can define new access levels for the platform.}
+{Given I am in the Role Management module, When I define the new role 'Auditor' and grant them 'Read-Only' access to student data, Then the new role is created in the database, and can be assigned to new users by the Java Auth Service.}
+
+\end{itemize}
+
+
+% --- 3. USER STORY MAPPING ---
+\section{User Story Mapping}
+The User Story Map is a visual planning tool that organizes user activities and associated stories into development iterations (Sprints).
+
+\begin{longtable}{|p{4.5cm}|p{3cm}|p{4.5cm}|p{3cm}|}
+\caption{DriveMaster User Story Mapping: Planning and Prioritization} \label{tab:usm} \\
+\toprule
+\rowcolor[gray]{0.9} \textbf{Backbone (Product Theme)} & \textbf{Activity (User Action)} & \textbf{User Stories (MVP / Iteration)} & \textbf{Priority} \\
+\midrule
+\endfirsthead
+
+\multicolumn{4}{c}%
+{{\bfseries \tablename\ \thetable{} -- continued from previous page}} \\
+\toprule
+\rowcolor[gray]{0.9} \textbf{Backbone (Product Theme)} & \textbf{Activity (User Action)} & \textbf{User Stories (MVP / Iteration)} & \textbf{Priority} \\
+\midrule
+\endhead
+
+\midrule
+\multicolumn{4}{|r|}{{Continued on next page}} \\
+\midrule
+\endfoot
+
+\bottomrule
+\endlastfoot
+
+\textbf{Authentication \& Access} & System Entry & Start Session Login (Instructor, Student). Password Reset. & \textbf{MVP / Critical} \\
+\textbf{Regulatory \& Student Management} & Student Lifecycle & Student Registration. View Student Progress. Generate Certificate. & \textbf{MVP / High} \\
+\textbf{Scheduling \& Logistics} & Class Management & Complete Class Report. Self-Schedule Practice (Student). Mark Absence. & \textbf{MVP / High} \\
+\textbf{SaaS License Management} & Billing \& Authorization & Manage Subscription End Date (Admin). Revoke License Access (Admin). & \textbf{MVP / Critical} \\
+\textbf{Compliance \& Data} & Normative Updates & Update Global Regulation (Admin). Report Vehicle Issue (Instructor). & \textbf{Iteration 2 / Medium} \\
+\textbf{Reporting} & Finance \& Audit & Generate Billing Report (Admin). Register Student Payment (Secretary). & \textbf{Iteration 2 / Medium} \\
+\end{longtable}
+
+% --- 4. CRC CARDS ---
+\section{CRC Cards (Class-Responsibility-Collaborator)}
+CRC Cards are used to identify the core classes, their responsibilities, and how they collaborate.
+
+\vspace{0.5cm}
+
+\noindent
+\begin{tabularx}{\textwidth}{|X|X|}
+    \hline
+    \rowcolor[gray]{0.9} \multicolumn{2}{|c|}{\textbf{Class: Student}} \\
+    \hline
+    \textbf{Responsibilities} & \textbf{Collaborators} \\
+    \hline
+    • Manage profile data (name, ID, category). & \textbf{CourseRegulation} \\
+    • Store and update progress (completed hours). & \textbf{Schedule} \\
+    • Request Certificate upon 100\% completion. & \textbf{PaymentService} \\
+    \hline
+\end{tabularx}
+
+\vspace{0.5cm}
+
+\noindent
+\begin{tabularx}{\textwidth}{|X|X|}
+    \hline
+    \rowcolor[gray]{0.9} \multicolumn{2}{|c|}{\textbf{Class: CourseRegulation}} \\
+    \hline
+    \textbf{Responsibilities} & \textbf{Collaborators} \\
+    \hline
+    Define mandatory hours per license type (A1, B2, C3). & \textbf{Student}, \textbf{SystemAdmin} \\
+    Validate if a Student meets certification criteria. &  \\
+    Handle Global Update of regulatory hours (Admin). &  \\
+    \hline
+\end{tabularx}
+
+\vspace{0.5cm}
+
+\noindent
+\begin{tabularx}{\textwidth}{|X|X|}
+    \hline
+    \rowcolor[gray]{0.9} \multicolumn{2}{|c|}{\textbf{Class: SubscriptionLicense}} \\
+    \hline
+    \textbf{Responsibilities} & \textbf{Collaborators} \\
+    \hline
+    Store Academy’s license end date and status (Active/Inactive). & \textbf{Academy} \\
+    Authorize user login access (checked by Java Auth Service). & \textbf{User (for login)} \\
+    Calculate billing amount based on Student usage (Python logic). & \textbf{BillingService} \\
+    \hline
+\end{tabularx}
+
+\vspace{0.5cm}
+
+\noindent
+\begin{tabularx}{\textwidth}{|X|X|}
+    \hline
+    \rowcolor[gray]{0.9} \multicolumn{2}{|c|}{\textbf{Class: Schedule}} \\
+    \hline
+    \textbf{Responsibilities} & \textbf{Collaborators} \\
+    \hline
+    Book and reserve time slots (Instructor and Vehicle). & \textbf{Student}, \textbf{Instructor}, \textbf{Vehicle} \\
+    Verify availability before confirmation. &  \\
+    Log class completion/absence for progress tracking. &  \\
+    \hline
+\end{tabularx}
+
+% --- 5. DELIVERY FORMAT (MANDATORY NOTE) ---
+\section{Delivery Format Note}
+All deliverables are compiled into this single PDF file. The source files, including the Angular frontend and the Java/Python backends, will be organized in a folder named \texttt{Workshop-1} in the course repository, with a \texttt{README.md} referencing each section as per the course requirements.
+
+\end{document}

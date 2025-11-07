@@ -1,0 +1,628 @@
+{
+	"info": {
+		"_postman_id": "0bfcdabc-99d0-4d96-9aa5-4f3693e36e1d",
+		"name": "DriverMaster",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15954284",
+		"_collection_link": "https://galactic-astronaut-692041.postman.co/workspace/My-Workspace~f3687d75-d4ca-4fbe-81cd-b2e4e5587226/collection/15954284-0bfcdabc-99d0-4d96-9aa5-4f3693e36e1d?action=share&source=collection_link&creator=15954284"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"identificationTypeId\": 1,\r\n    \"identificationNumber\": 987654321,\r\n    \"firstName\": \"Nuevo\",\r\n    \"lastName\": \"Usuario\",\r\n    \"password\": \"abcd1234\",\r\n    \"email\": \"nuevo@correo.com\",\r\n    \"phone\": \"3009876543\",\r\n    \"address\": \"Calle Nueva 456\",\r\n    \"bloodType\": \"A+\",\r\n    \"eps\": \"Sanitas\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://localhost:8083/api/auth/register \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -H \"Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...\" \\\r\n  -d '{\r\n    \"identificationTypeId\": 1,\r\n    \"identificationNumber\": 987654321,\r\n    \"firstName\": \"Nuevo\",\r\n    \"lastName\": \"Usuario\",\r\n    \"password\": \"abcd1234\",\r\n    \"email\": \"nuevo@correo.com\",\r\n    \"phone\": \"3009876543\",\r\n    \"address\": \"Calle Nueva 456\",\r\n    \"bloodType\": \"A+\",\r\n    \"eps\": \"Sanitas\"\r\n  }'\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN_HERE"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/user/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"all"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://localhost:8080/api/user/all \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN_HERE\"\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Find User By ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN_HERE"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"1"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://localhost:8080/api/user/1 \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN_HERE\"\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Find User By Identification",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN_HERE"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/user/identification/123456789",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"identification",
+								"123456789"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://localhost:8080/api/user/identification/123456789 \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN_HERE\"\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN_HERE"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"identificationNumber\": 987654321,\r\n        \"firstName\": \"Cristian\",\r\n        \"lastName\": \"Parra Updated\",\r\n        \"password\": \"nuevoPassword123\",\r\n        \"email\": \"new-email@example.com\",\r\n        \"phone\": \"3109876543\",\r\n        \"address\": \"Nueva dirección 456\",\r\n        \"bloodType\": \"A+\",\r\n        \"eps\": \"Sanitas\",\r\n        \"identificationTypeId\": 1\r\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"1"
+							]
+						},
+						"description": "Generated from cURL: curl -X PUT http://localhost:8080/api/user/1 \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN_HERE\" \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n        \"identificationNumber\": 987654321,\r\n        \"firstName\": \"Cristian\",\r\n        \"lastName\": \"Parra Updated\",\r\n        \"password\": \"nuevoPassword123\",\r\n        \"email\": \"new-email@example.com\",\r\n        \"phone\": \"3109876543\",\r\n        \"address\": \"Nueva dirección 456\",\r\n        \"bloodType\": \"A+\",\r\n        \"eps\": \"Sanitas\",\r\n        \"identificationTypeId\": 1\r\n      }'\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User By ID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer YOUR_JWT_TOKEN_HERE"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/user/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"user",
+								"1"
+							]
+						},
+						"description": "Generated from cURL: curl -X DELETE http://localhost:8080/api/user/1 \\\r\n  -H \"Authorization: Bearer YOUR_JWT_TOKEN_HERE\"\r\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"123\",\r\n    \"password\": \"tu_contraseña\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"auth",
+								"login"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://localhost:8083/auth/login \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -d '{\r\n    \"username\": \"tu_usuario\",\r\n    \"password\": \"tu_contraseña\"\r\n  }'\r\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Register Student",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"personId\": 1,\r\n        \"enrollmentDate\": \"2025-09-01\",\r\n        \"status\": \"Active\",\r\n        \"gradeLevel\": \"Level 1\",\r\n        \"licenseCategory\": \"B\",\r\n        \"theoryHoursCompleted\": 5,\r\n        \"practiceHoursCompleted\": 2,\r\n        \"guardianName\": \"Juan Parra\",\r\n        \"guardianPhone\": \"3009876543\"\r\n      }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}",
+							"host": [
+								"{{BASE_URL}}"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST {{BASE_URL}} \\\r\n  -H \"Content-Type: application/json\" \\\r\n  -H \"Authorization: Bearer {{TOKEN}}\" \\\r\n  -d '{\r\n        \"personId\": 1,\r\n        \"enrollmentDate\": \"2025-09-01\",\r\n        \"status\": \"Active\",\r\n        \"gradeLevel\": \"Level 1\",\r\n        \"licenseCategory\": \"B\",\r\n        \"theoryHoursCompleted\": 5,\r\n        \"practiceHoursCompleted\": 2,\r\n        \"guardianName\": \"Juan Parra\",\r\n        \"guardianPhone\": \"3009876543\"\r\n      }'\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Find Student By ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}/1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"1"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET {{BASE_URL}}/1 \\\r\n  -H \"Authorization: Bearer {{TOKEN}}\"\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Students",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{TOKEN}}"
+							}
+						],
+						"url": {
+							"raw": "{{BASE_URL}}",
+							"host": [
+								"{{BASE_URL}}"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET {{BASE_URL}} \\\r\n  -H \"Authorization: Bearer {{TOKEN}}\"\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Student",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer TU_TOKEN_AQUI"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"personId\": 1,\r\n  \"enrollmentDate\": \"2025-09-01\",\r\n  \"status\": \"Active\",\r\n  \"gradeLevel\": \"Level 2\",\r\n  \"licenseCategory\": \"B\",\r\n  \"theoryHoursCompleted\": 10,\r\n  \"practiceHoursCompleted\": 6,\r\n  \"theoryHoursRequired\": 20,\r\n  \"practiceHoursRequired\": 20,\r\n  \"guardianName\": \"Nuevo Acudiente\",\r\n  \"guardianPhone\": \"3001112233\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/student/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"student",
+								"1"
+							]
+						},
+						"description": "Generated from cURL: curl -X PUT \"http://localhost:8080/api/student/1\" \\\r\n-H \"Content-Type: application/json\" \\\r\n-H \"Authorization: Bearer TU_TOKEN_AQUI\" \\\r\n-d '{\r\n  \"personId\": 1,\r\n  \"enrollmentDate\": \"2025-09-01\",\r\n  \"status\": \"Active\",\r\n  \"gradeLevel\": \"Level 2\",\r\n  \"licenseCategory\": \"B\",\r\n  \"theoryHoursCompleted\": 10,\r\n  \"practiceHoursCompleted\": 6,\r\n  \"theoryHoursRequired\": 20,\r\n  \"practiceHoursRequired\": 20,\r\n  \"guardianName\": \"Nuevo Acudiente\",\r\n  \"guardianPhone\": \"3001112233\"\r\n}'\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Student",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer TU_TOKEN_AQUI"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/student/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"student",
+								"1"
+							]
+						},
+						"description": "Generated from cURL: curl -X DELETE \"http://localhost:8080/api/student/1\" \\\r\n-H \"Authorization: Bearer TU_TOKEN_AQUI\"\r\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Staff",
+			"item": [
+				{
+					"name": "Register Staff",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer <TOKEN>"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"personId\": 1,\r\n    \"typeStaffId\": 2,\r\n    \"hireDate\": \"2025-11-07\",\r\n    \"salary\": 2500.50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/staff/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"staff",
+								"register"
+							]
+						},
+						"description": "Generated from cURL: curl -X POST http://localhost:8083/api/staff/register \\\r\n-H \"Content-Type: application/json\" \\\r\n-H \"Authorization: Bearer <TOKEN>\" \\\r\n-d '{\r\n    \"personId\": 1,\r\n    \"typeStaffId\": 2,\r\n    \"hireDate\": \"2025-11-07\",\r\n    \"salary\": 2500.50\r\n}'\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Find All Staff",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <TOKEN>"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8083/api/staff/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"staff",
+								"all"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://localhost:8083/api/staff/all \\\r\n-H \"Authorization: Bearer <TOKEN>\"\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Find Staff By ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <TOKEN>"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8083/api/staff/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"staff",
+								"1"
+							]
+						},
+						"description": "Generated from cURL: curl -X GET http://localhost:8083/api/staff/1 \\\r\n-H \"Authorization: Bearer <TOKEN>\"\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Staff",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer <TOKEN>"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"personId\": 1,\r\n    \"typeStaffId\": 2,\r\n    \"hireDate\": \"2025-11-07\",\r\n    \"salary\": 3000.75\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/staff/update/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"staff",
+								"update",
+								"1"
+							]
+						},
+						"description": "Generated from cURL: curl -X PUT http://localhost:8083/api/staff/update/1 \\\r\n-H \"Content-Type: application/json\" \\\r\n-H \"Authorization: Bearer <TOKEN>\" \\\r\n-d '{\r\n    \"personId\": 1,\r\n    \"typeStaffId\": 2,\r\n    \"hireDate\": \"2025-11-07\",\r\n    \"salary\": 3000.75\r\n}'\r\n"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Staff",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer <TOKEN>"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8083/api/staff/delete/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"staff",
+								"delete",
+								"1"
+							]
+						},
+						"description": "Generated from cURL: curl -X DELETE http://localhost:8083/api/staff/delete/1 \\\r\n-H \"Authorization: Bearer <TOKEN>\"\r\n"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Register Administrator",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer <TOKEN>"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"personId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8083/api/admin/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"admin",
+						"register"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST http://localhost:8083/api/admin/register \\\r\n-H \"Content-Type: application/json\" \\\r\n-H \"Authorization: Bearer <TOKEN>\" \\\r\n-d '{\r\n    \"personId\": 1\r\n}'\r\n"
+			},
+			"response": []
+		},
+		{
+			"name": "Find All Administrator",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer <TOKEN>"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8083/api/admin/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8083",
+					"path": [
+						"api",
+						"admin",
+						"all"
+					]
+				},
+				"description": "Generated from cURL: curl -X GET http://localhost:8083/api/admin/all \\\r\n-H \"Authorization: Bearer <TOKEN>\"\r\n"
+			},
+			"response": []
+		}
+	]
+}

@@ -3,6 +3,7 @@ from typing import List
 from fastapi import APIRouter, HTTPException
 from pymongo.errors import DuplicateKeyError
 from app.db.mongo import get_db, get_next_vehicle_id
+from pymongo import ReturnDocument
 from app.models.vehicle import Vehicle, VehicleCreate, VehicleUpdate
 
 router = APIRouter(prefix="/vehiculos", tags=["vehiculos"])
@@ -23,6 +24,11 @@ async def crear_vehiculo(payload: VehicleCreate) -> Vehicle:
             await db["vehiculos"].insert_one(doc)
             return Vehicle.from_mongo(doc)
         except DuplicateKeyError:
+            # Puede ser colisión de 'id' o de 'placa'. Si la 'placa' ya existe,
+            # devolvemos 400; si no, reintentamos por posible colisión de 'id'.
+            existing = await db["vehiculos"].find_one({"placa": doc.get("placa")})
+            if existing:
+                raise HTTPException(status_code=400, detail="Placa ya existe")
             # Otra inserción concurrente tomó el mismo id; reintentar con el siguiente
             continue
         except Exception as e:
@@ -58,12 +64,20 @@ async def actualizar_vehiculo(id: int, payload: VehicleUpdate) -> Vehicle:
         if not doc:
             raise HTTPException(status_code=404, detail="Vehículo no encontrado")
         return Vehicle.from_mongo(doc)
-    result = await db["vehiculos"].find_one_and_update(
+    try:
+        result = await db["vehiculos"].find_one_and_update(
         {"id": id},
         {"$set": update_doc},
         projection={"_id": 0},
-        return_document=True,
+        return_document=ReturnDocument.AFTER,
     )
+    except DuplicateKeyError:
+        # Si hay conflicto de placa única al actualizar
+        if "placa" in update_doc:
+            exists = await db["vehiculos"].find_one({"placa": update_doc["placa"]})
+            if exists and exists.get("id") != id:
+                raise HTTPException(status_code=400, detail="Placa ya existe")
+        raise HTTPException(status_code=400, detail="Conflicto de unicidad al actualizar")
     if not result:
         raise HTTPException(status_code=404, detail="Vehículo no encontrado")
     return Vehicle.from_mongo(result)

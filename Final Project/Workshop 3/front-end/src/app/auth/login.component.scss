@@ -1,0 +1,35 @@
+.login-bg {
+  min-height: calc(100vh - 0px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background: linear-gradient(135deg, #ff6b6b, #845ef7);
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  padding: 2rem;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.login-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.full { width: 100%; }
+
+@media (max-width: 480px) {
+  .login-card { padding: 1.25rem; }
+}

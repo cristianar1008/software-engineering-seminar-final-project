@@ -1,7 +1,11 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'secretario/vehiculos', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  {
+    path: 'login',
+    loadComponent: () => import('./auth/login.component').then(m => m.LoginComponent)
+  },
   {
     path: 'secretario/vehiculos',
     loadComponent: () => import('./roles/secretario/features/vehiculos').then(m => m.VehiculosListComponent)

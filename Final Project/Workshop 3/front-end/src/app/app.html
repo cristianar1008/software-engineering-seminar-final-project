@@ -182,11 +182,11 @@
   }
 </style>
 
-<app-navbar></app-navbar>
+<app-navbar *ngIf="!isLoginRoute()"></app-navbar>
 
-<div class="container">
+<div [class.container]="!isLoginRoute()">
   <router-outlet></router-outlet>
   
 </div>
 
-<app-footer></app-footer>
+<app-footer *ngIf="!isLoginRoute()"></app-footer>

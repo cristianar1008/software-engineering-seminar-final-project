@@ -65,8 +65,7 @@ CREATE TABLE Staff (
     FOREIGN KEY (type_staff_id) REFERENCES TypeStaff(id)
 );
 
-INSERT INTO Staff (person_id, type_staff_id, hire_date, salary)
-VALUES (1, 2, '2025-01-15', 2500000.00);
+
 
 -- ------------------------------
 -- 6️⃣ Tabla Student
@@ -89,8 +88,6 @@ CREATE TABLE Student (
     FOREIGN KEY (person_id) REFERENCES Person(id)
 );
 
-INSERT INTO Student (person_id, enrollment_date, grade_level, license_category, theory_hours_completed, practice_hours_completed, guardian_name, guardian_phone)
-VALUES (1, '2025-09-01', 'Level 1', 'B', 5, 2, 'Juan Parra', '3009876543');
 
 -- ------------------------------
 -- 7️⃣ Tabla Administrator

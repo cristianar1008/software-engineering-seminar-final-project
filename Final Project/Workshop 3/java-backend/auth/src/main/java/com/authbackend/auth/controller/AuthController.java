@@ -2,7 +2,11 @@ package com.authbackend.auth.controller;
 
 import com.authbackend.auth.dto.RegisterRequest;
 import com.authbackend.auth.entity.Person;
+import com.authbackend.auth.entity.Staff;
 import com.authbackend.auth.repository.PersonRepository;
+import com.authbackend.auth.repository.AdministratorRepository;
+import com.authbackend.auth.repository.StaffRepository;
+import com.authbackend.auth.repository.StudentRepository;
 import com.authbackend.auth.service.AuthService;
 import com.authbackend.auth.util.JwtUtil;
 import org.springframework.http.ResponseEntity;
@@ -23,12 +27,26 @@ public class AuthController {
     private final JwtUtil jwtUtil;
     private final PersonRepository personRepository;
     private final AuthService authService;
+    private final AdministratorRepository administratorRepository;
+    private final StaffRepository staffRepository;
+    private final StudentRepository studentRepository;
 
-    public AuthController(AuthenticationManager authenticationManager, JwtUtil jwtUtil, PersonRepository personRepository, AuthService authService ) {
+    public AuthController(
+            AuthenticationManager authenticationManager,
+            JwtUtil jwtUtil,
+            PersonRepository personRepository,
+            AuthService authService,
+            AdministratorRepository administratorRepository,
+            StaffRepository staffRepository,
+            StudentRepository studentRepository
+    ) {
         this.authenticationManager = authenticationManager;
         this.jwtUtil = jwtUtil;
         this.personRepository = personRepository;
         this.authService = authService;
+        this.administratorRepository = administratorRepository;
+        this.staffRepository = staffRepository;
+        this.studentRepository = studentRepository;
     }
 
     @GetMapping("/test")
@@ -46,27 +64,38 @@ public class AuthController {
                     new UsernamePasswordAuthenticationToken(identificationNumber, password)
             );
 
-            // ✅ Buscar el usuario completo
             Person person = personRepository.findByIdentificationNumber(Long.parseLong(identificationNumber))
                     .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));
 
-            // ✅ Generar token JWT
-            String token = jwtUtil.generateToken(authentication.getName());
+            // ✅ Determinar el rol del usuario según su tipo
+            String role = "USER"; // valor por defecto
+            if (administratorRepository.existsByPerson(person)) {
+                role = "ADMIN";
+            } else if (staffRepository.existsByPerson(person)) {
+                Staff staff = staffRepository.findByPerson(person);
+                if (staff.getTypeStaff().getType().equalsIgnoreCase("Instructor")) {
+                    role = "INSTRUCTOR";
+                } else if (staff.getTypeStaff().getType().equalsIgnoreCase("Secretaria")) {
+                    role = "SECRETARIA";
+                } else {
+                    role = "STAFF";
+                }
+            } else if (studentRepository.existsByPerson(person)) {
+                role = "STUDENT";
+            }
 
-            // ✅ Preparar respuesta sin incluir contraseña
+            // ✅ Generar token con el rol
+            String token = jwtUtil.generateToken(authentication.getName(), role);
+
+            // ✅ Preparar respuesta
             Map<String, Object> userData = new HashMap<>();
             userData.put("id", person.getId());
-            userData.put("identificationTypeId", person.getIdentificationType());
-            userData.put("identificationNumber", person.getIdentificationNumber());
             userData.put("firstName", person.getFirstName());
             userData.put("lastName", person.getLastName());
             userData.put("email", person.getEmail());
             userData.put("phone", person.getPhone());
-            userData.put("address", person.getAddress());
-            userData.put("bloodType", person.getBloodType());
-            userData.put("eps", person.getEps());
+            userData.put("role", role);
 
-            // ✅ Devolver token + datos del usuario
             return ResponseEntity.ok(Map.of(
                     "message", "Login successful",
                     "token", token,
@@ -77,6 +106,5 @@ public class AuthController {
             return ResponseEntity.status(401).body(Map.of("error", "Invalid credentials"));
         }
     }
-
 
 }

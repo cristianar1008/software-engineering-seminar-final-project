@@ -59,7 +59,7 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                     }
                 }
             } catch (JwtException e) {
-                System.out.println("❌ Error al procesar JWT: " + e.getMessage());
+                System.out.println("Error al procesar JWT: " + e.getMessage());
             }
         }
 

@@ -1,6 +1,6 @@
 package com.authbackend.auth.config;
 
-import com.authbackend.auth.service.PersonDetailsService;
+import com.authbackend.auth.service.AuthService;
 import com.authbackend.auth.util.JwtRequestFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,11 +26,11 @@ import java.util.List;
 @EnableMethodSecurity // ✅ Permite usar @PreAuthorize("hasRole('ADMIN')")
 public class SecurityConfig {
 
-    private final PersonDetailsService personDetailsService;
+    private final AuthService authService;
     private final JwtRequestFilter jwtAuthFilter;
 
-    public SecurityConfig(PersonDetailsService personDetailsService, JwtRequestFilter jwtAuthFilter) {
-        this.personDetailsService = personDetailsService;
+    public SecurityConfig(AuthService authService, JwtRequestFilter jwtAuthFilter) {
+        this.authService = authService;
         this.jwtAuthFilter = jwtAuthFilter;
     }
 
@@ -90,7 +90,7 @@ public class SecurityConfig {
     @Bean
     public DaoAuthenticationProvider authProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(personDetailsService);
+        authProvider.setUserDetailsService(authService);
         authProvider.setPasswordEncoder(passwordEncoder());
         return authProvider;
     }

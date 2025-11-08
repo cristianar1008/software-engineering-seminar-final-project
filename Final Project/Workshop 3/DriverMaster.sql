@@ -107,6 +107,6 @@ INSERT INTO Administrator (person_id)
 VALUES (1);
 
 Select * from Person;
-select*from staff;
-select*from administrator;
-select*from student;
+Select * from staff;
+Select * from administrator;
+Select* from student;

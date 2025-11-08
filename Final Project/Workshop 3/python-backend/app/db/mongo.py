@@ -17,20 +17,40 @@ def get_db() -> AsyncIOMotorDatabase:
         _db = get_client()[MONGODB_DB]
     return _db
 
-async def get_next_vehicle_id() -> int:
-    """Obtiene el siguiente ID autoincrementable basado en la colección 'vehiculos'.
+async def get_next_sequence(collection: str) -> int:
+    """Devuelve el siguiente valor de secuencia para la colección indicada.
 
-    Busca el mayor 'id' actual y devuelve ese valor + 1. Si no hay documentos,
-    devuelve 1. La unicidad se asegura con un índice único en 'id'.
+    Busca el documento con mayor `id` y retorna +1. Si no existe,
+    devuelve 1. La función es genérica para reutilizar en distintas
+    colecciones y evitar código repetido.
     """
     db = get_db()
-    doc = await db["vehiculos"].find_one(sort=[("id", -1)], projection={"id": 1})
+    doc = await db[collection].find_one(sort=[("id", -1)], projection={"id": 1})
     if doc and "id" in doc:
         return int(doc["id"]) + 1
     return 1
 
 async def init_indexes() -> None:
     db = get_db()
-    # Índice único para 'id' autoincrementable y para 'placa'
+    # Cursos y académicos
+    await db["cursos"].create_index("id", unique=True)
+    await db["cursos"].create_index("codigo", unique=True)
+    await db["horarios"].create_index("id", unique=True)
+    await db["horarios"].create_index([
+        ("curso_id", 1),
+        ("dia_semana", 1),
+        ("aula", 1),
+    ])
+    await db["horarios"].create_index([
+        ("curso_id", 1),
+        ("dia_semana", 1),
+    ])
+    # Vehículos: índices únicos para id y placa
     await db["vehiculos"].create_index("id", unique=True)
     await db["vehiculos"].create_index("placa", unique=True)
+    # Nota: inscripciones no se usan en este alcance
+
+
+async def get_next_vehicle_id() -> int:
+    """Compatibilidad con código existente."""
+    return await get_next_sequence("vehiculos")

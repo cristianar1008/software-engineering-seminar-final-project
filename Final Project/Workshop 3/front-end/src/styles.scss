@@ -113,3 +113,12 @@ body {
 .mb-16 { margin-bottom: 16px; }
 .pt-8 { padding-top: 8px; }
 .pb-8 { padding-bottom: 8px; }
+
+/* GLOBAL CSS: src/styles.css o src/styles.scss */
+html, body {
+    /* Esenciales para prevenir desbordamiento */
+    width: 100%;
+    overflow-x: hidden; 
+    margin: 0;
+    padding: 0;
+}

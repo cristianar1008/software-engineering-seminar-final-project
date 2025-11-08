@@ -1,11 +1,9 @@
 package com.authbackend.auth.service;
 
-import com.authbackend.auth.dto.RegisterRequest;
-import com.authbackend.auth.entity.IdentificationType;
-import com.authbackend.auth.entity.Person;
-import com.authbackend.auth.repository.PersonRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import com.authbackend.auth.repository.PersonRepository;
 
 @Service
 public class AuthService {

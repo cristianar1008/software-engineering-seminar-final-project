@@ -1,0 +1,61 @@
+version: '3.9'
+services:
+  mysql-drivermaster:
+    image: mysql:8.0
+    container_name: mysql-drivermaster
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: auth_db
+    volumes:
+      - mysql_data:/var/lib/mysql
+    ports:
+      - "3307:3306"
+
+  mongo-fastapi:
+    image: mongo:7
+    container_name: mongo-fastapi
+    restart: always
+    volumes:
+      - mongo_data:/data/db
+    ports:
+      - "27017:27017"
+
+  auth-backend:
+    build: ./java-backend/auth
+    container_name: auth-backend
+    depends_on:
+      - mysql-drivermaster
+    environment:
+      DB_HOST: mysql-drivermaster
+      DB_USER: root
+      DB_PASSWORD: root
+      DB_NAME: auth_db
+    ports:
+      - "8083:8083"
+    restart: always
+
+  fastapi-service:
+    build: ./python-backend
+    container_name: fastapi-service
+    depends_on:
+      - mongo-fastapi
+    environment:
+      MONGO_URL: mongodb://mongo-fastapi:27017
+    ports:
+      - "8000:8000"
+    restart: always
+
+  angular-frontend:
+    build: ./front-end
+    container_name: angular-frontend
+    depends_on:
+      - auth-backend
+      - fastapi-service
+    ports:
+      - "4200:80"
+    restart: always
+
+volumes:
+  mysql_data:
+  mongo_data:

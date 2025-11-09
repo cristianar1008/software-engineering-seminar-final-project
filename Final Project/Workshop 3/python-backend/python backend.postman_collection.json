@@ -1,0 +1,213 @@
+{
+  "info": {
+    "name": "python backend",
+    "_postman_id": "54f2a4ae-0000-4e22-9f22-python-backend",
+    "description": "Colección Postman completa para el backend FastAPI del Workshop 3. Incluye raíz, health, Vehículos y Académico (Cursos y Horarios), con ejemplos de peticiones y respuestas.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:8000", "type": "string", "description": "URL base del servidor FastAPI (uvicorn)." },
+    { "key": "apiBase", "value": "/api/v1", "type": "string", "description": "Prefijo de API versión 1." },
+    { "key": "vehicleId", "value": "1", "type": "string", "description": "ID de vehículo para pruebas de rutas por ID." },
+    { "key": "courseId", "value": "1", "type": "string", "description": "ID de curso para pruebas de rutas por ID." },
+    { "key": "scheduleId", "value": "1", "type": "string", "description": "ID de horario para pruebas de rutas por ID." }
+  ],
+  "item": [
+    {
+      "name": "Raíz",
+      "item": [
+        {
+          "name": "GET /",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}/", "host": ["{{baseUrl}}"], "path": [""] },
+            "description": "Estado base del API. Útil para verificar que el servidor está en ejecución."
+          },
+          "response": [
+            { "name": "200 OK", "status": "OK", "code": 200, "_postman_previewlanguage": "json", "header": [], "body": "{\n  \"status\": \"ok\",\n  \"message\": \"API running\"\n}" }
+          ]
+        },
+        {
+          "name": "GET /api/v1/health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}{{apiBase}}/health", "host": ["{{baseUrl}}"], "path": ["api", "v1", "health"] },
+            "description": "Healthcheck del backend."
+          },
+          "response": [
+            { "name": "200 OK", "status": "OK", "code": 200, "_postman_previewlanguage": "json", "header": [], "body": "{\n  \"status\": \"healthy\"\n}" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Vehículos",
+      "item": [
+        {
+          "name": "GET /vehiculos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}{{apiBase}}/vehiculos", "host": ["{{baseUrl}}"], "path": ["api", "v1", "vehiculos"] },
+            "description": "Lista todos los vehículos."
+          },
+          "response": [
+            { "name": "200 OK", "status": "OK", "code": 200, "_postman_previewlanguage": "json", "body": "[\n  {\n    \"id\": 1,\n    \"placa\": \"AAA111\",\n    \"modelo\": \"2021\",\n    \"marca\": \"Ford\",\n    \"estado\": \"activo\",\n    \"tipo_licencia\": \"B\",\n    \"fecha_registro\": null,\n    \"fecha_salida\": null\n  },\n  {\n    \"id\": 2,\n    \"placa\": \"BBB222\",\n    \"modelo\": \"2022\",\n    \"marca\": \"Honda\",\n    \"estado\": \"activo\",\n    \"tipo_licencia\": \"C\",\n    \"fecha_registro\": null,\n    \"fecha_salida\": null\n  }\n]" }
+          ]
+        },
+        {
+          "name": "POST /vehiculos",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": { "mode": "raw", "raw": "{\n  \"placa\": \"ABC123\",\n  \"modelo\": \"2022\",\n  \"marca\": \"Toyota\",\n  \"estado\": \"activo\",\n  \"tipo_licencia\": \"B\",\n  \"fecha_registro\": null,\n  \"fecha_salida\": null\n}" },
+            "url": { "raw": "{{baseUrl}}{{apiBase}}/vehiculos", "host": ["{{baseUrl}}"], "path": ["api", "v1", "vehiculos"] },
+            "description": "Crea un vehículo. Si 'fecha_registro' no se envía, el servidor asigna la fecha actual. Evita duplicados de 'placa' e 'id'."
+          },
+          "response": [
+            { "name": "200 OK", "status": "OK", "code": 200, "_postman_previewlanguage": "json", "body": "{\n  \"id\": 3,\n  \"placa\": \"ABC123\",\n  \"modelo\": \"2022\",\n  \"marca\": \"Toyota\",\n  \"estado\": \"activo\",\n  \"tipo_licencia\": \"B\",\n  \"fecha_registro\": \"2025-02-01T12:00:00Z\",\n  \"fecha_salida\": null\n}" },
+            { "name": "400 Placa ya existe", "status": "Bad Request", "code": 400, "_postman_previewlanguage": "json", "body": "{\n  \"detail\": \"Placa ya existe\"\n}" }
+          ]
+        },
+        {
+          "name": "GET /vehiculos/{id}",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}{{apiBase}}/vehiculos/{{vehicleId}}", "host": ["{{baseUrl}}"], "path": ["api", "v1", "vehiculos", "{{vehicleId}}"] },
+            "description": "Obtiene un vehículo por id. 404 si no existe."
+          },
+          "response": [
+            { "name": "200 OK", "status": "OK", "code": 200, "_postman_previewlanguage": "json", "body": "{\n  \"id\": 1,\n  \"placa\": \"AAA111\",\n  \"modelo\": \"2021\",\n  \"marca\": \"Ford\",\n  \"estado\": \"activo\",\n  \"tipo_licencia\": \"B\",\n  \"fecha_registro\": null,\n  \"fecha_salida\": null\n}" },
+            { "name": "404 No encontrado", "status": "Not Found", "code": 404, "_postman_previewlanguage": "json", "body": "{\n  \"detail\": \"Vehículo no encontrado\"\n}" }
+          ]
+        },
+        {
+          "name": "PUT /vehiculos/{id}",
+          "request": {
+            "method": "PUT",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": { "mode": "raw", "raw": "{\n  \"marca\": \"Honda\",\n  \"placa\": \"ABC123\"\n}" },
+            "url": { "raw": "{{baseUrl}}{{apiBase}}/vehiculos/{{vehicleId}}", "host": ["{{baseUrl}}"], "path": ["api", "v1", "vehiculos", "{{vehicleId}}"] },
+            "description": "Actualiza campos del vehículo. Maneja conflicto de 'placa'. Payload vacío retorna actual."
+          },
+          "response": [
+            { "name": "200 OK", "status": "OK", "code": 200, "_postman_previewlanguage": "json", "body": "{\n  \"id\": 1,\n  \"placa\": \"ABC123\",\n  \"modelo\": \"2021\",\n  \"marca\": \"Honda\",\n  \"estado\": \"activo\",\n  \"tipo_licencia\": \"B\"\n}" },
+            { "name": "400 Placa ya existe", "status": "Bad Request", "code": 400, "_postman_previewlanguage": "json", "body": "{\n  \"detail\": \"Placa ya existe\"\n}" },
+            { "name": "404 No encontrado", "status": "Not Found", "code": 404, "_postman_previewlanguage": "json", "body": "{\n  \"detail\": \"Vehículo no encontrado\"\n}" }
+          ]
+        },
+        {
+          "name": "DELETE /vehiculos/{id}",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": { "raw": "{{baseUrl}}{{apiBase}}/vehiculos/{{vehicleId}}", "host": ["{{baseUrl}}"], "path": ["api", "v1", "vehiculos", "{{vehicleId}}"] },
+            "description": "Elimina por id. Devuelve { deleted: true, id }."
+          },
+          "response": [
+            { "name": "200 OK", "status": "OK", "code": 200, "_postman_previewlanguage": "json", "body": "{\n  \"deleted\": true,\n  \"id\": 1\n}" },
+            { "name": "404 No encontrado", "status": "Not Found", "code": 404, "_postman_previewlanguage": "json", "body": "{\n  \"detail\": \"Vehículo no encontrado\"\n}" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Académico - Cursos",
+      "item": [
+        {
+          "name": "GET /academico/cursos",
+          "request": { "method": "GET", "header": [], "url": { "raw": "{{baseUrl}}{{apiBase}}/academico/cursos", "host": ["{{baseUrl}}"], "path": ["api", "v1", "academico", "cursos"] }, "description": "Lista cursos." },
+          "response": [
+            { "name": "200 OK", "status": "OK", "code": 200, "_postman_previewlanguage": "json", "body": "[\n  { \n    \"id\": 1, \n    \"codigo\": \"CUR101\", \n    \"nombre\": \"Conducción Básica\", \n    \"creditos\": 3, \n    \"descripcion\": \"Curso introductorio\", \n    \"vehiculo_id\": 1 \n  }\n]" }
+          ]
+        },
+        {
+          "name": "POST /academico/cursos",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": { "mode": "raw", "raw": "{\n  \"codigo\": \"CUR101\",\n  \"nombre\": \"Conducción Básica\",\n  \"creditos\": 3,\n  \"descripcion\": \"Curso introductorio\",\n  \"vehiculo_id\": 1\n}" },
+            "url": { "raw": "{{baseUrl}}{{apiBase}}/academico/cursos", "host": ["{{baseUrl}}"], "path": ["api", "v1", "academico", "cursos"] },
+            "description": "Crea curso. 'codigo' único; 'creditos' ≥ 0; 'vehiculo_id' opcional (> 0)."
+          },
+          "response": [
+            { "name": "201 Created", "status": "Created", "code": 201, "_postman_previewlanguage": "json", "body": "{\n  \"id\": 1,\n  \"codigo\": \"CUR101\",\n  \"nombre\": \"Conducción Básica\",\n  \"creditos\": 3,\n  \"descripcion\": \"Curso introductorio\",\n  \"vehiculo_id\": 1\n}" },
+            { "name": "400 Código ya existe", "status": "Bad Request", "code": 400, "_postman_previewlanguage": "json", "body": "{\n  \"detail\": \"Código de curso ya existe\"\n}" }
+          ]
+        },
+        {
+          "name": "GET /academico/cursos/{id}",
+          "request": { "method": "GET", "header": [], "url": { "raw": "{{baseUrl}}{{apiBase}}/academico/cursos/{{courseId}}", "host": ["{{baseUrl}}"], "path": ["api", "v1", "academico", "cursos", "{{courseId}}"] }, "description": "Obtiene curso por id." },
+          "response": [
+            { "name": "200 OK", "status": "OK", "code": 200, "_postman_previewlanguage": "json", "body": "{\n  \"id\": 1, \n  \"codigo\": \"CUR101\", \n  \"nombre\": \"Conducción Básica\", \n  \"creditos\": 3, \n  \"descripcion\": \"Curso introductorio\", \n  \"vehiculo_id\": 1 \n}" },
+            { "name": "404 No encontrado", "status": "Not Found", "code": 404, "_postman_previewlanguage": "json", "body": "{\n  \"detail\": \"Curso no encontrado\"\n}" }
+          ]
+        },
+        {
+          "name": "PUT /academico/cursos/{id}",
+          "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"nombre\": \"Conducción Intermedia\",\n  \"creditos\": 4\n}" }, "url": { "raw": "{{baseUrl}}{{apiBase}}/academico/cursos/{{courseId}}", "host": ["{{baseUrl}}"], "path": ["api", "v1", "academico", "cursos", "{{courseId}}"] }, "description": "Actualiza curso; payload vacío devuelve actual." },
+          "response": [
+            { "name": "200 OK", "status": "OK", "code": 200, "_postman_previewlanguage": "json", "body": "{\n  \"id\": 1, \n  \"codigo\": \"CUR101\", \n  \"nombre\": \"Conducción Intermedia\", \n  \"creditos\": 4, \n  \"descripcion\": \"Curso introductorio\", \n  \"vehiculo_id\": 1 \n}" },
+            { "name": "404 No encontrado", "status": "Not Found", "code": 404, "_postman_previewlanguage": "json", "body": "{\n  \"detail\": \"Curso no encontrado\"\n}" }
+          ]
+        },
+        {
+          "name": "DELETE /academico/cursos/{id}",
+          "request": { "method": "DELETE", "header": [], "url": { "raw": "{{baseUrl}}{{apiBase}}/academico/cursos/{{courseId}}", "host": ["{{baseUrl}}"], "path": ["api", "v1", "academico", "cursos", "{{courseId}}"] }, "description": "Elimina curso por id." },
+          "response": [
+            { "name": "200 OK", "status": "OK", "code": 200, "_postman_previewlanguage": "json", "body": "{\n  \"deleted\": true,\n  \"id\": 1\n}" },
+            { "name": "404 No encontrado", "status": "Not Found", "code": 404, "_postman_previewlanguage": "json", "body": "{\n  \"detail\": \"Curso no encontrado\"\n}" }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Académico - Horarios",
+      "item": [
+        {
+          "name": "GET /academico/horarios",
+          "request": { "method": "GET", "header": [], "url": { "raw": "{{baseUrl}}{{apiBase}}/academico/horarios", "host": ["{{baseUrl}}"], "path": ["api", "v1", "academico", "horarios"] }, "description": "Lista horarios." },
+          "response": [
+            { "name": "200 OK", "status": "OK", "code": 200, "_postman_previewlanguage": "json", "body": "[\n  { \n    \"id\": 1, \n    \"curso_id\": 1, \n    \"dia_semana\": 1, \n    \"hora_inicio\": \"08:00\", \n    \"hora_fin\": \"09:00\", \n    \"aula\": \"A101\", \n    \"tipo\": \"teorica\", \n    \"vehiculo_id\": 1 \n  }\n]" }
+          ]
+        },
+        {
+          "name": "POST /academico/horarios",
+          "request": {
+            "method": "POST",
+            "header": [ { "key": "Content-Type", "value": "application/json" } ],
+            "body": { "mode": "raw", "raw": "{\n  \"curso_id\": 1,\n  \"dia_semana\": 1,\n  \"hora_inicio\": \"08:00\",\n  \"hora_fin\": \"09:00\",\n  \"aula\": \"A101\",\n  \"tipo\": \"teorica\",\n  \"vehiculo_id\": 1\n}" },
+            "url": { "raw": "{{baseUrl}}{{apiBase}}/academico/horarios", "host": ["{{baseUrl}}"], "path": ["api", "v1", "academico", "horarios"] },
+            "description": "Crea horario. Requiere curso existente y valida solapamientos."
+          },
+          "response": [
+            { "name": "201 Created", "status": "Created", "code": 201, "_postman_previewlanguage": "json", "body": "{\n  \"id\": 1, \n  \"curso_id\": 1, \n  \"dia_semana\": 1, \n  \"hora_inicio\": \"08:00\", \n  \"hora_fin\": \"09:00\", \n  \"aula\": \"A101\", \n  \"tipo\": \"teorica\", \n  \"vehiculo_id\": 1 \n}" },
+            { "name": "400 Solapamiento", "status": "Bad Request", "code": 400, "_postman_previewlanguage": "json", "body": "{\n  \"detail\": \"Horario solapa con otro del mismo curso y día\"\n}" },
+            { "name": "404 Curso no encontrado", "status": "Not Found", "code": 404, "_postman_previewlanguage": "json", "body": "{\n  \"detail\": \"Curso no encontrado\"\n}" }
+          ]
+        },
+        {
+          "name": "GET /academico/horarios/{id}",
+          "request": { "method": "GET", "header": [], "url": { "raw": "{{baseUrl}}{{apiBase}}/academico/horarios/{{scheduleId}}", "host": ["{{baseUrl}}"], "path": ["api", "v1", "academico", "horarios", "{{scheduleId}}"] }, "description": "Obtiene horario por id." },
+          "response": [
+            { "name": "200 OK", "status": "OK", "code": 200, "_postman_previewlanguage": "json", "body": "{\n  \"id\": 1, \n  \"curso_id\": 1, \n  \"dia_semana\": 1, \n  \"hora_inicio\": \"08:00\", \n  \"hora_fin\": \"09:00\", \n  \"aula\": \"A101\", \n  \"tipo\": \"teorica\", \n  \"vehiculo_id\": 1 \n}" },
+            { "name": "404 No encontrado", "status": "Not Found", "code": 404, "_postman_previewlanguage": "json", "body": "{\n  \"detail\": \"Horario no encontrado\"\n}" }
+          ]
+        },
+        {
+          "name": "PUT /academico/horarios/{id}",
+          "request": { "method": "PUT", "header": [ { "key": "Content-Type", "value": "application/json" } ], "body": { "mode": "raw", "raw": "{\n  \"hora_inicio\": \"10:00\",\n  \"hora_fin\": \"11:00\"\n}" }, "url": { "raw": "{{baseUrl}}{{apiBase}}/academico/horarios/{{scheduleId}}", "host": ["{{baseUrl}}"], "path": ["api", "v1", "academico", "horarios", "{{scheduleId}}"] }, "description": "Actualiza horario; si cambian horas, valida formato y fin > inicio." },
+          "response": [
+            { "name": "200 OK", "status": "OK", "code": 200, "_postman_previewlanguage": "json", "body": "{\n  \"id\": 1, \n  \"curso_id\": 1, \n  \"dia_semana\": 1, \n  \"hora_inicio\": \"10:00\", \n  \"hora_fin\": \"11:00\", \n  \"aula\": \"A101\", \n  \"tipo\": \"teorica\", \n  \"vehiculo_id\": 1 \n}" },
+            { "name": "400 Formato de hora inválido", "status": "Bad Request", "code": 400, "_postman_previewlanguage": "json", "body": "{\n  \"detail\": \"hora debe tener formato HH:MM\"\n}" },
+            { "name": "400 Fin debe ser posterior", "status": "Bad Request", "code": 400, "_postman_previewlanguage": "json", "body": "{\n  \"detail\": \"hora_fin debe ser posterior a hora_inicio\"\n}" },
+            { "name": "404 No encontrado", "status": "Not Found", "code": 404, "_postman_previewlanguage": "json", "body": "{\n  \"detail\": \"Horario no encontrado\"\n}" }
+          ]
+        }
+      ]
+    }
+  ]
+}

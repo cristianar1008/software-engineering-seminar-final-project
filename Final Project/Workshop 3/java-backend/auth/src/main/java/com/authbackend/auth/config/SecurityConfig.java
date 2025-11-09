@@ -5,11 +5,14 @@ import java.util.List;
 // Importación crucial para el uso robusto de rutas ignoradas
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher; 
 
+import com.authbackend.auth.service.AuthService;
+import com.authbackend.auth.util.JwtRequestFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -22,20 +25,25 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.authbackend.auth.service.PersonDetailsService;
 import com.authbackend.auth.util.JwtRequestFilter;
+import java.util.List;
 
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
+@EnableMethodSecurity // ✅ Permite usar @PreAuthorize("hasRole('ADMIN')")
 public class SecurityConfig {
 
-    private final PersonDetailsService personDetailsService;
+    private final AuthService authService;
     private final JwtRequestFilter jwtAuthFilter;
 
-    public SecurityConfig(PersonDetailsService personDetailsService, JwtRequestFilter jwtAuthFilter) {
-        this.personDetailsService = personDetailsService;
+    public SecurityConfig(AuthService authService, JwtRequestFilter jwtAuthFilter) {
+        this.authService = authService;
         this.jwtAuthFilter = jwtAuthFilter;
     }
 
@@ -85,6 +93,26 @@ public class SecurityConfig {
             )
             // 5. Agrega el filtro JWT antes del filtro estándar de usuario/contraseña
             .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+                .csrf(csrf -> csrf.disable())
+                .cors(cors -> cors.configurationSource(corsConfigurationSource()))
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(auth -> auth
+                        // ✅ Endpoints públicos
+                        .requestMatchers(
+                                "/api/auth/login",
+                                "/api/auth/test"
+                        ).permitAll()
+
+                        // ✅ Rutas protegidas por rol
+                        .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/api/staff/**").hasAnyRole("STAFF", "ADMIN")
+                        .requestMatchers("/api/student/**").hasAnyRole("STUDENT", "STAFF", "ADMIN")
+
+                        // ✅ Cualquier otra requiere autenticación
+                        .anyRequest().authenticated()
+                )
+                // ✅ Registrar el filtro JWT antes del UsernamePasswordAuthenticationFilter
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
     }
@@ -109,19 +137,41 @@ public class SecurityConfig {
         return source;
     }
 
+    // ✅ Configuración CORS global
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(List.of(
+                "http://localhost:5173",   // Vite
+                "http://localhost:3000",   // React
+                "http://localhost:4200"    // Angular
+        ));
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(List.of("*"));
+        configuration.setAllowCredentials(true);
+        configuration.setMaxAge(3600L);
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
+
+    // ✅ Encriptador de contraseñas
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
+    // ✅ Proveedor de autenticación (usa tu servicio personalizado)
     @Bean
     public DaoAuthenticationProvider authProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-        authProvider.setUserDetailsService(personDetailsService);
+        authProvider.setUserDetailsService(authService);
         authProvider.setPasswordEncoder(passwordEncoder());
         return authProvider;
     }
 
+    // ✅ AuthenticationManager (para el login)
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authConfig) throws Exception {
         return authConfig.getAuthenticationManager();

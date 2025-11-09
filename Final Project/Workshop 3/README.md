@@ -1,5 +1,4 @@
-## Project Description
-
+## Driver Master
 This repository contains the **backend developed in Java with Spring Boot**, responsible for providing a secure and scalable **REST API** that communicates with a **MySQL** database.  
 
 The application implements authentication using **JWT (JSON Web Token)**, user management, and modules for students and administrative staff.  
@@ -138,4 +137,5 @@ It must be run before the system starts for the first time.
 **Database:** MySQL
 
 ---
+
 

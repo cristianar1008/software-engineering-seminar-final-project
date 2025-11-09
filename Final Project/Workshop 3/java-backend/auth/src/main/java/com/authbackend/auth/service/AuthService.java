@@ -8,6 +8,10 @@ import com.authbackend.auth.repository.StaffRepository;
 import com.authbackend.auth.repository.StudentRepository;
 import org.springframework.security.core.userdetails.*;
         import org.springframework.stereotype.Service;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import com.authbackend.auth.repository.PersonRepository;
 
 @Service
 public class AuthService implements UserDetailsService {

@@ -1,59 +1,40 @@
-# SecretaryPortal
+# 🚀 Plataforma Web - Frontend (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.9.
+## 🧩 Descripción
+Este proyecto corresponde al **frontend** de la plataforma desarrollada en **Angular**, conectada a servicios **Java (Spring Boot)** y **Python (FastAPI)**.  
+Permite la gestión de clases, instructores, estudiantes, vehículos y asignaciones académicas, además de la visualización y edición de datos en tiempo real.
 
-## Development server
+---
 
-To start a local development server, run:
+## 📦 Requisitos previos
+Antes de comenzar, asegúrate de tener instalado:
 
+| Herramienta | Versión recomendada | Comando para verificar |
+|--------------|--------------------|-------------------------|
+| Node.js | v18 o superior | `node -v` |
+| npm | v9 o superior | `npm -v` |
+| Angular CLI | v17 o superior | `ng version` |
+
+Si no tienes Angular CLI instalado:
 ```bash
+npm install -g @angular/cli
+
+Clonar repositorio
+git clone https://github.com/tu-usuario/tu-repositorio.git
+cd tu-repositorio
+
+⚙️ Instalar dependencias
+npm install
+
+
+🌍 Configurar variables de entorno
+export const environment = {
+  production: false,
+  javaApiUrl: 'http://localhost:8083/api',
+  pythonApiUrl: 'http://localhost:8000/api/v1'
+};
+
+Ejecutar el servidor de desarrollo
 ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+http://localhost:4200/
+ng build --configuration production

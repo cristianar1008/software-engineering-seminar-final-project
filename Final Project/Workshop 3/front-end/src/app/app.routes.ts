@@ -26,6 +26,10 @@ export const routes: Routes = [
     path: 'secretario/asignar',
     loadComponent: () => import('./roles/secretario/features/asignar').then(m => m.AsignarComponent)
   },
+  {
+    path: 'administrador/asignar',
+    loadComponent: () => import('./roles/admin/asignar/asignar.component').then(m => m.AsignarComponent)
+  },
   // Vistas independientes por rol, sin dependencias cruzadas
   {
     path: 'instructor',

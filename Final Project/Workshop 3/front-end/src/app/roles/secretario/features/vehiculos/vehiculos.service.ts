@@ -36,7 +36,7 @@ export interface VehiculoUpdate {
 
 @Injectable({ providedIn: 'root' })
 export class VehiculosService {
-  private baseUrl = environment.apiBaseUrl;
+  private baseUrl = environment.pythonApiUrl;
   private vehiculosPath = `${this.baseUrl}/vehiculos`;
   private refreshSubject = new Subject<void>();
   vehiculos$: Observable<Vehiculo[]> = this.refreshSubject.pipe(

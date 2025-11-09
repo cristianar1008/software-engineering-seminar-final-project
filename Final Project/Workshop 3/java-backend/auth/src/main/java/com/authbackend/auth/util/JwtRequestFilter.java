@@ -3,6 +3,10 @@ package com.authbackend.auth.util;
 import io.jsonwebtoken.JwtException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
+import io.jsonwebtoken.JwtException;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -15,6 +19,7 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 import java.util.List;
 
 @Component
@@ -33,6 +38,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                                     HttpServletResponse response,
                                     FilterChain filterChain)
             throws ServletException, IOException {
+                                    FilterChain filterChain)
+            throws ServletException, IOException {
 
         String authHeader = request.getHeader("Authorization");
 
@@ -43,6 +50,12 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                 String username = jwtUtil.extractUsername(token);
                 String role = jwtUtil.extractRole(token); // 👈 Nuevo: leer rol desde el token
 
+            try {
+                String username = jwtUtil.extractUsername(token);
+                String role = jwtUtil.extractRole(token); // 👈 Nuevo: leer rol desde el token
+
+                if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+                    UserDetails userDetails = userDetailsService.loadUserByUsername(username);
                 if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
                     UserDetails userDetails = userDetailsService.loadUserByUsername(username);
 
@@ -57,12 +70,26 @@ public class JwtRequestFilter extends OncePerRequestFilter {
                         authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
                         SecurityContextHolder.getContext().setAuthentication(authToken);
                     }
+                    if (jwtUtil.isTokenValid(token, userDetails.getUsername())) {
+                        // 👇 Si el token tiene el rol, lo agregamos como autoridad
+                        var authorities = List.of(new SimpleGrantedAuthority("ROLE_" + role.toUpperCase()));
+
+                        var authToken = new UsernamePasswordAuthenticationToken(
+                                userDetails, null, authorities
+                        );
+
+                        authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                        SecurityContextHolder.getContext().setAuthentication(authToken);
+                    }
                 }
             } catch (JwtException e) {
                 System.out.println("Error al procesar JWT: " + e.getMessage());
+            } catch (JwtException e) {
+                System.out.println("❌ Error al procesar JWT: " + e.getMessage());
             }
         }
 
         filterChain.doFilter(request, response);
     }
 }
+

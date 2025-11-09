@@ -1,0 +1,30 @@
+<main class="login-bg">
+  <section class="login-card">
+    <div class="brand">
+      <mat-icon fontIcon="lock"></mat-icon>
+      <h1>Acceder</h1>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="submit()" class="login-form">
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Usuario</mat-label>
+        <input matInput formControlName="username" placeholder="Tu usuario" />
+        <mat-icon matSuffix fontIcon="person"></mat-icon>
+        <mat-error *ngIf="form.controls.username.touched && form.controls.username.hasError('required')">Usuario requerido</mat-error>
+        <mat-error *ngIf="form.controls.username.touched && form.controls.username.hasError('minlength')">Mínimo 3 caracteres</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full">
+        <mat-label>Contraseña</mat-label>
+        <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" placeholder="Tu contraseña" />
+        <button mat-icon-button matSuffix type="button" (click)="hidePassword = !hidePassword" aria-label="Mostrar/ocultar contraseña">
+          <mat-icon fontIcon="visibility"></mat-icon>
+        </button>
+        <mat-error *ngIf="form.controls.password.touched && form.controls.password.hasError('required')">Contraseña requerida</mat-error>
+        <mat-error *ngIf="form.controls.password.touched && form.controls.password.hasError('minlength')">Mínimo 4 caracteres</mat-error>
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" class="full" [disabled]="loading">Entrar</button>
+    </form>
+  </section>
+</main>

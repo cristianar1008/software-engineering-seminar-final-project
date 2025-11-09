@@ -1,0 +1,115 @@
+@use '@angular/material' as mat;
+
+// Include the common styles for Angular Material
+@include mat.core();
+
+// Define a simple light theme
+$primary: mat.m2-define-palette(mat.$m2-indigo-palette);
+$accent: mat.m2-define-palette(mat.$m2-pink-palette, A200, A100, A400);
+$warn: mat.m2-define-palette(mat.$m2-red-palette);
+$theme: mat.m2-define-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn,
+  ),
+  typography: mat.m2-define-typography-config(),
+  density: 0,
+));
+
+// Apply the theme to all components
+@include mat.all-component-themes($theme);
+
+// Base layout styles
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: #fafafa;
+}
+
+.container {
+  padding: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+/* Tipografía y tema global */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+:root {
+  --dm-primary: #1f6feb; /* azul profesional */
+  --dm-primary-contrast: #ffffff;
+  --dm-surface: #ffffff;
+  --dm-bg: #f5f7fb;
+  --dm-text: #1b1f24;
+  --dm-muted: #6b7280;
+}
+
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', Inter, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, sans-serif;
+  background: var(--dm-bg);
+  color: var(--dm-text);
+}
+
+/* Layout utilidades */
+.page-container {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+.page-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.page-header h2 {
+  font-weight: 500;
+  margin: 0;
+}
+.spacer { flex: 1; }
+
+/* Cards y tablas */
+.mat-card {
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+.mat-mdc-table {
+  background: var(--dm-surface);
+}
+.mat-mdc-row:hover {
+  background: rgba(31, 111, 235, 0.04);
+}
+.mat-mdc-cell, .mat-mdc-header-cell {
+  vertical-align: middle;
+}
+
+/* Toolbar y navegación */
+.app-toolbar.mat-toolbar {
+  background: var(--dm-primary) !important;
+  color: var(--dm-primary-contrast) !important;
+}
+.app-toolbar .brand {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+.app-toolbar a.mat-mdc-button {
+  color: var(--dm-primary-contrast);
+}
+.app-toolbar a.active {
+  background: rgba(255,255,255,0.14);
+}
+
+/* Espaciados rápidos */
+.mt-16 { margin-top: 16px; }
+.mb-16 { margin-bottom: 16px; }
+.pt-8 { padding-top: 8px; }
+.pb-8 { padding-bottom: 8px; }

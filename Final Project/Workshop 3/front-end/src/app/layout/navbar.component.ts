@@ -31,7 +31,7 @@ import { AuthService } from '../services/auth';
        <mat-icon>school</mat-icon>
        <span>Instructores</span>
      </a>
-        <a mat-button routerLink="/secretario/asignar" routerLinkActive="active">
+        <a mat-button routerLink="/administrador/asignar" routerLinkActive="active">
           <mat-icon>assignment_ind</mat-icon>
           <span>Asignar</span>
         </a>

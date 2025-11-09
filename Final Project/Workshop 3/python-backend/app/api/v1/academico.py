@@ -8,6 +8,10 @@ java-backend, se puede realizar vía peticiones HTTP (ver TODO).
 """
 
 from __future__ import annotations
+from fastapi import Body
+from typing import List, Optional
+from datetime import datetime, timedelta 
+
 
 from datetime import datetime
 from typing import List, Optional
@@ -300,3 +304,211 @@ async def actualizar_horario(id: int, payload: ScheduleUpdate):
     if not updated:
         raise HTTPException(status_code=404, detail="Horario no encontrado")
     return Schedule(**updated)
+
+# ---------------------------------------------------------------------
+# Asignación de clases (teóricas y prácticas)
+# ---------------------------------------------------------------------
+
+class ClaseAsignacionRequest(BaseModel):
+    tipo: ClaseTipo
+    curso_id: int
+    profesor_id: Optional[int] = None
+    estudiantes_ids: List[int] = Field(..., min_items=1)
+    vehiculo_id: Optional[int] = None
+    dia_semana: int = Field(..., ge=0, le=6)
+    hora_inicio: str
+    hora_fin: str
+
+@router.post("/asignar-clase")
+async def asignar_clase(payload: ClaseAsignacionRequest = Body(...)):
+    """
+    Asigna clases teóricas o prácticas según las reglas:
+    - Teórica: un profesor puede tener varios estudiantes simultáneamente.
+    - Práctica: un profesor y un vehículo solo pueden tener una clase a la vez.
+    """
+    db = get_db()
+
+    # 1️⃣ Validar curso
+    curso = await db["cursos"].find_one({"id": payload.curso_id})
+    if not curso:
+        raise HTTPException(status_code=404, detail="Curso no encontrado")
+
+    # 2️⃣ Validar formato de horas y rango permitido
+    hi = datetime.strptime(payload.hora_inicio, "%H:%M")
+    hf = datetime.strptime(payload.hora_fin, "%H:%M")
+    if hf <= hi:
+        raise HTTPException(status_code=400, detail="hora_fin debe ser posterior a hora_inicio")
+    if hi.hour < 6 or hf.hour > 21:
+        raise HTTPException(status_code=400, detail="Horario permitido es entre 06:00 y 21:00")
+
+    # 3️⃣ Validar disponibilidad del profesor
+    if payload.profesor_id:
+        cursor = db["horarios"].find({
+            "profesor_id": payload.profesor_id,
+            "dia_semana": payload.dia_semana
+        })
+        async for existing in cursor:
+            if _intervals_overlap(payload.hora_inicio, payload.hora_fin,
+                                  existing["hora_inicio"], existing["hora_fin"]):
+                raise HTTPException(status_code=400, detail="Profesor ocupado en ese horario")
+
+    # 4️⃣ Validar vehículo si es clase práctica
+    if payload.tipo == ClaseTipo.practica:
+        if not payload.vehiculo_id:
+            raise HTTPException(status_code=400, detail="vehiculo_id es requerido para clase práctica")
+        cursor = db["horarios"].find({
+            "vehiculo_id": payload.vehiculo_id,
+            "dia_semana": payload.dia_semana
+        })
+        async for existing in cursor:
+            if _intervals_overlap(payload.hora_inicio, payload.hora_fin,
+                                  existing["hora_inicio"], existing["hora_fin"]):
+                raise HTTPException(status_code=400, detail="Vehículo ocupado en ese horario")
+
+    # 5️⃣ Crear asignaciones (una por estudiante)
+    asignaciones_creadas = []
+    for estudiante_id in payload.estudiantes_ids:
+        nuevo = {
+            "id": await get_next_sequence("horarios"),
+            "curso_id": payload.curso_id,
+            "profesor_id": payload.profesor_id,
+            "estudiante_id": estudiante_id,
+            "dia_semana": payload.dia_semana,
+            "hora_inicio": payload.hora_inicio,
+            "hora_fin": payload.hora_fin,
+            "tipo": payload.tipo.value,
+            "vehiculo_id": payload.vehiculo_id,
+        }
+        await db["horarios"].insert_one(nuevo)
+        asignaciones_creadas.append({"id": nuevo["id"]})
+
+    return {
+        "ok": True,
+        "mensaje": f"Clase {payload.tipo.value} asignada correctamente",
+        "asignaciones_creadas": asignaciones_creadas
+    }
+
+# ---------------------------------------------------------------------
+# Endpoints complementarios para gestión de asignaciones
+# ---------------------------------------------------------------------
+
+@router.get("/asignaciones")
+async def listar_asignaciones(
+    profesor_id: Optional[int] = None,
+    estudiante_id: Optional[int] = None,
+    dia_semana: Optional[int] = None,
+):
+    """
+    Lista todas las clases asignadas, con filtros opcionales:
+    - profesor_id: filtra por profesor
+    - estudiante_id: filtra por estudiante
+    - dia_semana: filtra por día de la semana (0=lunes ... 6=domingo)
+    """
+    db = get_db()
+
+    filtros = {}
+    if profesor_id is not None:
+        filtros["profesor_id"] = profesor_id
+    if estudiante_id is not None:
+        filtros["estudiante_id"] = estudiante_id
+    if dia_semana is not None:
+        filtros["dia_semana"] = dia_semana
+
+    cursor = db["horarios"].find(filtros, {"_id": 0})
+    resultados = []
+    async for doc in cursor:
+        # opcional: enriquecer con nombre del curso
+        curso = await db["cursos"].find_one({"id": doc["curso_id"]}, {"_id": 0, "nombre": 1})
+        doc["curso_nombre"] = curso["nombre"] if curso else "Desconocido"
+        resultados.append(doc)
+    return resultados
+
+
+@router.delete("/asignaciones/{id}")
+async def eliminar_asignacion(id: int):
+    """
+    Elimina una clase asignada (teórica o práctica) según su id.
+    """
+    db = get_db()
+    res = await db["horarios"].delete_one({"id": id})
+    if res.deleted_count == 0:
+        raise HTTPException(status_code=404, detail="Asignación no encontrada")
+    return {"ok": True, "mensaje": f"Asignación {id} eliminada correctamente"}
+
+
+@router.put("/asignaciones/{id}")
+async def actualizar_asignacion(id: int, payload: ScheduleUpdate):
+    """
+    Permite actualizar datos básicos de una asignación ya creada:
+    - horario, aula, tipo, vehículo, etc.
+    Aplica validaciones similares a las de creación.
+    """
+    db = get_db()
+    update_doc = {k: v for k, v in payload.model_dump().items() if v is not None}
+
+    if not update_doc:
+        raise HTTPException(status_code=400, detail="No se enviaron campos para actualizar")
+
+    # Validar formato de horas (si se envían)
+    if "hora_inicio" in update_doc or "hora_fin" in update_doc:
+        current = await db["horarios"].find_one({"id": id}, {"_id": 0})
+        if not current:
+            raise HTTPException(status_code=404, detail="Asignación no encontrada")
+
+        hi = update_doc.get("hora_inicio", current["hora_inicio"])
+        hf = update_doc.get("hora_fin", current["hora_fin"])
+        try:
+            hi_dt = datetime.strptime(hi, "%H:%M")
+            hf_dt = datetime.strptime(hf, "%H:%M")
+        except Exception:
+            raise HTTPException(status_code=400, detail="hora debe tener formato HH:MM")
+        if hf_dt <= hi_dt:
+            raise HTTPException(status_code=400, detail="hora_fin debe ser posterior a hora_inicio")
+
+    # Actualizar documento
+    updated = await db["horarios"].find_one_and_update(
+        {"id": id},
+        {"$set": update_doc},
+        projection={"_id": 0},
+        return_document=ReturnDocument.AFTER,
+    )
+    if not updated:
+        raise HTTPException(status_code=404, detail="Asignación no encontrada")
+
+    return {"ok": True, "mensaje": "Asignación actualizada correctamente", "data": updated}
+
+
+@router.get("/disponibilidad")
+async def obtener_disponibilidad(dia_semana: int):
+    """
+    Devuelve los bloques horarios disponibles entre 6:00 y 21:00
+    para un día específico (0=lunes ... 6=domingo).
+    Bloques de 1 hora.
+    """
+    db = get_db()
+    horarios_ocupados = [h async for h in db["horarios"].find({"dia_semana": dia_semana}, {"_id": 0})]
+
+    bloques = []
+    hora_actual = datetime.strptime("06:00", "%H:%M")
+    fin_dia = datetime.strptime("21:00", "%H:%M")
+
+    while hora_actual < fin_dia:
+        siguiente = hora_actual + timedelta(hours=1)
+        bloque_libre = True
+        for h in horarios_ocupados:
+            if _intervals_overlap(
+                hora_actual.strftime("%H:%M"),
+                siguiente.strftime("%H:%M"),
+                h["hora_inicio"],
+                h["hora_fin"],
+            ):
+                bloque_libre = False
+                break
+        bloques.append({
+            "inicio": hora_actual.strftime("%H:%M"),
+            "fin": siguiente.strftime("%H:%M"),
+            "disponible": bloque_libre
+        })
+        hora_actual = siguiente
+
+    return bloques

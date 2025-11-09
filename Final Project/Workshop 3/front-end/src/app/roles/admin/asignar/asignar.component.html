@@ -1,0 +1,112 @@
+<ng-container *ngIf="datosCargados; else cargando">
+  <mat-card>
+    <mat-card-title>Asignación de clases</mat-card-title>
+    <mat-card-subtitle>Asigna instructores, estudiantes y vehículos</mat-card-subtitle>
+
+    <form [formGroup]="asignacionForm" class="formulario" (ngSubmit)="asignarClase()">
+      <mat-form-field appearance="fill" class="full">
+        <mat-label>Curso</mat-label>
+        <mat-select formControlName="cursoId">
+          <mat-option *ngFor="let c of cursos" [value]="c.id">{{ c.nombre }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full">
+        <mat-label>Tipo de clase</mat-label>
+        <mat-select formControlName="tipoClase" (selectionChange)="onTipoClaseChange($event.value)">
+          <mat-option value="teorica">Teórica</mat-option>
+          <mat-option value="practica">Práctica</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full">
+        <mat-label>Fecha</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fecha" (dateChange)="buscarDisponibilidad()">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full">
+        <mat-label>Hora</mat-label>
+        <mat-select formControlName="hora">
+          <mat-option *ngFor="let hora of horariosDisponibles" [value]="hora">{{ hora }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full">
+        <mat-label>Instructor</mat-label>
+        <mat-select formControlName="instructorId">
+          <mat-option *ngFor="let i of instructores" [value]="i.id">
+            {{ i.personFirstName || i.firstName }} {{ i.personLastName || i.lastName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill" class="full">
+        <mat-label>Estudiantes</mat-label>
+        <mat-select formControlName="estudianteIds" [multiple]="tipoClase !== 'practica'">
+          <mat-option *ngFor="let e of estudiantes" [value]="e.id">
+            {{ e.firstName || e.personFirstName }} {{ e.lastName || e.personLastName }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field *ngIf="tipoClase === 'practica'" appearance="fill" class="full">
+        <mat-label>Vehículo</mat-label>
+        <mat-select formControlName="vehiculoId">
+          <mat-option *ngFor="let v of vehiculos" [value]="v.id">
+            {{ v.placa || v.code || v.nombre }} / {{ v.tipo_licencia || v.tipo }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="actions">
+        <button mat-raised-button color="primary" type="submit">Asignar clase</button>
+      </div>
+    </form>
+  </mat-card>
+
+  <mat-card class="mt-4" *ngIf="clasesCargadas">
+    <mat-card-title>Clases asignadas</mat-card-title>
+    <table mat-table [dataSource]="clasesAsignadas" class="mat-elevation-z2 full-width">
+
+      <ng-container matColumnDef="curso">
+        <th mat-header-cell *matHeaderCellDef>Curso</th>
+        <td mat-cell *matCellDef="let clase">{{ clase.curso_nombre }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="instructor">
+        <th mat-header-cell *matHeaderCellDef>Instructor</th>
+        <td mat-cell *matCellDef="let clase">{{ clase.profesor_nombre }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="estudiantes">
+        <th mat-header-cell *matHeaderCellDef>Estudiantes</th>
+        <td mat-cell *matCellDef="let clase">
+          {{ (clase.estudiantes_nombres || []).join(', ') }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="hora">
+        <th mat-header-cell *matHeaderCellDef>Horario</th>
+        <td mat-cell *matCellDef="let clase">{{ clase.hora_inicio }} - {{ clase.hora_fin }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let clase">
+          <button mat-button color="accent" (click)="editarClase(clase)">Editar</button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </mat-card>
+</ng-container>
+
+<ng-template #cargando>
+  <div class="loading">
+    Cargando datos...
+  </div>
+</ng-template>

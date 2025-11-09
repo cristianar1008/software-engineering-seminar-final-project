@@ -1,0 +1,10 @@
+.formulario {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+mat-card {
+  padding: 24px;
+}

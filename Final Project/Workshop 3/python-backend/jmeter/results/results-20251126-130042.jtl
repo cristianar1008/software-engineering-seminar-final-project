@@ -1,0 +1,701 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1764180046074,190,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-1,text,true,,913,187,1,6,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,185,0,82
+1764180046245,19,GET /,200,OK,HealthCheckSmoke 1-2,text,true,,183,143,2,6,http://localhost:8000/,18,0,1
+1764180046074,190,GET /,200,OK,HealthCheckSmoke 1-1,text,true,,183,143,2,6,http://localhost:8000/,179,0,83
+1764180046269,8,GET /api/v1/health,200,OK,HealthCheckSmoke 1-2,text,true,,164,156,2,6,http://localhost:8000/api/v1/health,8,0,2
+1764180046269,13,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-1,text,true,,912,187,1,6,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,13,0,1
+1764180046269,13,GET /api/v1/health,200,OK,HealthCheckSmoke 1-1,text,true,,164,156,2,6,http://localhost:8000/api/v1/health,13,0,2
+1764180046278,14,GET /,200,OK,HealthCheckSmoke 1-2,text,true,,183,143,2,6,http://localhost:8000/,13,0,2
+1764180046283,14,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-1,text,true,,911,187,1,6,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,13,0,1
+1764180046283,14,GET /,200,OK,HealthCheckSmoke 1-1,text,true,,183,143,2,6,http://localhost:8000/,14,0,1
+1764180046293,8,GET /api/v1/health,200,OK,HealthCheckSmoke 1-2,text,true,,164,156,2,6,http://localhost:8000/api/v1/health,8,0,2
+1764180046297,8,GET /api/v1/health,200,OK,HealthCheckSmoke 1-1,text,true,,164,156,2,6,http://localhost:8000/api/v1/health,8,0,2
+1764180046298,12,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-1,text,true,,911,187,1,6,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,12,0,1
+1764180046302,12,GET /,200,OK,HealthCheckSmoke 1-2,text,true,,183,143,2,6,http://localhost:8000/,12,0,2
+1764180046306,8,GET /,200,OK,HealthCheckSmoke 1-1,text,true,,183,143,2,6,http://localhost:8000/,8,0,2
+1764180046074,204,POST /vehiculos,200,OK,VehiclesCRUDStress 2-1,text,true,,325,310,1,6,http://localhost:8000/api/v1/vehiculos/,204,0,153
+1764180046074,202,POST /academico/cursos,201,Created,CoursesHorariosStress 3-1,text,true,,267,258,1,6,http://localhost:8000/api/v1/academico/cursos,202,0,82
+1764180046074,222,POST /academico/cursos (asignaciones),400,Bad Request,AsignacionesStress 5-1,text,false,,192,255,1,6,http://localhost:8000/api/v1/academico/cursos,221,0,82
+1764180046311,13,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-1,text,true,,911,187,1,6,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,13,0,1
+1764180046315,13,GET /api/v1/health,200,OK,HealthCheckSmoke 1-1,text,true,,164,156,2,5,http://localhost:8000/api/v1/health,12,0,1
+1764180046315,12,GET /api/v1/health,200,OK,HealthCheckSmoke 1-2,text,true,,164,156,2,5,http://localhost:8000/api/v1/health,12,0,1
+1764180046328,10,GET /,200,OK,HealthCheckSmoke 1-2,text,true,,183,143,2,5,http://localhost:8000/,9,0,1
+1764180046328,10,GET /,200,OK,HealthCheckSmoke 1-1,text,true,,183,143,2,5,http://localhost:8000/,9,0,1
+1764180046339,9,GET /api/v1/health,200,OK,HealthCheckSmoke 1-2,text,true,,164,156,2,5,http://localhost:8000/api/v1/health,9,0,1
+1764180046339,10,GET /api/v1/health,200,OK,HealthCheckSmoke 1-1,text,true,,164,156,2,5,http://localhost:8000/api/v1/health,9,0,1
+1764180046349,16,GET /,200,OK,HealthCheckSmoke 1-1,text,true,,183,143,2,5,http://localhost:8000/,16,0,1
+1764180046348,54,GET /,200,OK,HealthCheckSmoke 1-2,text,true,,183,143,2,5,http://localhost:8000/,54,0,1
+1764180046366,43,GET /api/v1/health,200,OK,HealthCheckSmoke 1-1,text,true,,164,156,2,5,http://localhost:8000/api/v1/health,42,0,1
+1764180046403,8,GET /api/v1/health,200,OK,HealthCheckSmoke 1-2,text,true,,164,156,1,4,http://localhost:8000/api/v1/health,8,0,1
+1764180046323,159,GET /vehiculos,200,OK,VehiclesCRUDStress 2-1,text,true,,400547,160,1,3,http://localhost:8000/api/v1/vehiculos/,156,0,0
+1764180046556,28,POST /vehiculos,200,OK,VehiclesCRUDStress 2-2,text,true,,325,310,2,4,http://localhost:8000/api/v1/vehiculos/,28,0,4
+1764180046632,30,POST /academico/cursos (asignaciones),201,Created,AsignacionesStress 5-2,text,true,,264,255,2,6,http://localhost:8000/api/v1/academico/cursos,29,0,2
+1764180046616,46,POST /academico/cursos,400,Bad Request,CoursesHorariosStress 3-2,text,false,,192,258,2,6,http://localhost:8000/api/v1/academico/cursos,45,0,2
+1764180046585,117,GET /vehiculos,200,OK,VehiclesCRUDStress 2-2,text,true,,400747,160,2,6,http://localhost:8000/api/v1/vehiculos/,117,0,0
+1764180046742,6,GET /,200,OK,HealthCheckSmoke 1-3,text,true,,183,143,1,7,http://localhost:8000/,6,0,2
+1764180046749,8,GET /api/v1/health,200,OK,HealthCheckSmoke 1-3,text,true,,164,156,1,7,http://localhost:8000/api/v1/health,7,0,2
+1764180046758,6,GET /,200,OK,HealthCheckSmoke 1-3,text,true,,183,143,1,7,http://localhost:8000/,6,0,2
+1764180046765,4,GET /api/v1/health,200,OK,HealthCheckSmoke 1-3,text,true,,164,156,1,7,http://localhost:8000/api/v1/health,4,0,1
+1764180046770,6,GET /,200,OK,HealthCheckSmoke 1-3,text,true,,183,143,1,7,http://localhost:8000/,5,0,1
+1764180046776,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-3,text,true,,164,156,1,7,http://localhost:8000/api/v1/health,5,0,1
+1764180046782,5,GET /,200,OK,HealthCheckSmoke 1-3,text,true,,183,143,1,7,http://localhost:8000/,5,0,1
+1764180046788,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-3,text,true,,164,156,1,7,http://localhost:8000/api/v1/health,5,0,1
+1764180046794,5,GET /,200,OK,HealthCheckSmoke 1-3,text,true,,183,143,1,7,http://localhost:8000/,5,0,1
+1764180046800,6,GET /api/v1/health,200,OK,HealthCheckSmoke 1-3,text,true,,164,156,1,7,http://localhost:8000/api/v1/health,6,0,1
+1764180046882,8,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-2,text,true,,911,187,1,7,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,8,0,1
+1764180046891,8,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-2,text,true,,913,187,1,7,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,8,0,1
+1764180046899,8,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-2,text,true,,911,187,1,7,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,8,0,1
+1764180046908,7,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-2,text,true,,911,187,1,7,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,7,0,1
+1764180046916,8,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-2,text,true,,913,187,1,7,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,8,0,1
+1764180047146,22,POST /vehiculos,200,OK,VehiclesCRUDStress 2-3,text,true,,325,310,3,7,http://localhost:8000/api/v1/vehiculos/,22,0,1
+1764180047240,7,GET /,200,OK,HealthCheckSmoke 1-4,text,true,,183,143,1,8,http://localhost:8000/,7,0,2
+1764180047248,9,GET /api/v1/health,200,OK,HealthCheckSmoke 1-4,text,true,,164,156,1,8,http://localhost:8000/api/v1/health,9,0,1
+1764180047259,8,GET /,200,OK,HealthCheckSmoke 1-4,text,true,,183,143,1,8,http://localhost:8000/,7,0,1
+1764180047268,11,GET /api/v1/health,200,OK,HealthCheckSmoke 1-4,text,true,,164,156,1,8,http://localhost:8000/api/v1/health,11,0,3
+1764180047279,8,GET /,200,OK,HealthCheckSmoke 1-4,text,true,,183,143,1,9,http://localhost:8000/,8,0,3
+1764180047292,10,GET /api/v1/health,200,OK,HealthCheckSmoke 1-4,text,true,,164,156,1,9,http://localhost:8000/api/v1/health,10,0,3
+1764180047303,24,GET /,200,OK,HealthCheckSmoke 1-4,text,true,,183,143,1,9,http://localhost:8000/,24,0,3
+1764180047328,6,GET /api/v1/health,200,OK,HealthCheckSmoke 1-4,text,true,,164,156,1,9,http://localhost:8000/api/v1/health,6,0,1
+1764180047290,44,POST /academico/cursos,201,Created,CoursesHorariosStress 3-3,text,true,,267,258,3,9,http://localhost:8000/api/v1/academico/cursos,44,0,3
+1764180047335,7,GET /,200,OK,HealthCheckSmoke 1-4,text,true,,183,143,1,9,http://localhost:8000/,7,0,2
+1764180047342,7,GET /api/v1/health,200,OK,HealthCheckSmoke 1-4,text,true,,164,156,1,9,http://localhost:8000/api/v1/health,7,0,2
+1764180047169,189,GET /vehiculos,200,OK,VehiclesCRUDStress 2-3,text,true,,400947,160,3,8,http://localhost:8000/api/v1/vehiculos/,188,0,0
+1764180047396,26,POST /academico/cursos (asignaciones),201,Created,AsignacionesStress 5-3,text,true,,264,255,3,9,http://localhost:8000/api/v1/academico/cursos,26,0,1
+1764180047565,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-2,text,true,,911,187,3,3,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,9,0,1
+1764180047565,12,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-3,text,true,,913,187,3,3,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,11,0,1
+1764180047565,12,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-1,text,true,,911,187,3,3,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,12,0,1
+1764180047575,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-2,text,true,,911,187,3,3,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,8,0,1
+1764180047578,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-3,text,true,,911,187,3,3,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,8,0,1
+1764180047578,10,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-1,text,true,,911,187,3,3,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,9,0,1
+1764180047584,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-2,text,true,,913,187,3,3,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,9,0,1
+1764180047587,10,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-3,text,true,,912,187,3,3,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,10,0,1
+1764180047588,10,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-1,text,true,,911,187,3,3,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,10,0,2
+1764180047594,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-2,text,true,,911,187,3,3,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,8,0,1
+1764180047598,10,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-3,text,true,,911,187,3,3,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,10,0,0
+1764180047599,11,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-1,text,true,,911,187,3,3,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,11,0,1
+1764180047603,11,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-2,text,true,,911,187,3,3,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,10,0,2
+1764180047609,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-3,text,true,,911,187,3,3,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,8,0,1
+1764180047611,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-1,text,true,,911,187,3,3,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,7,0,1
+1764180047618,15,POST /academico/cursos (asignaciones),400,Bad Request,CoursesHorariosStress 3-3,text,false,,192,255,3,3,http://localhost:8000/api/v1/academico/cursos,15,0,1
+1764180047614,19,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-2,text,true,,264,255,3,3,http://localhost:8000/api/v1/academico/cursos,19,0,2
+1764180047618,16,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-1,text,true,,265,255,3,3,http://localhost:8000/api/v1/academico/cursos,16,0,1
+1764180047738,6,GET /,200,OK,HealthCheckSmoke 1-5,text,true,,183,143,1,4,http://localhost:8000/,6,0,2
+1764180047745,8,GET /api/v1/health,200,OK,HealthCheckSmoke 1-5,text,true,,164,156,1,5,http://localhost:8000/api/v1/health,8,0,2
+1764180047754,6,GET /,200,OK,HealthCheckSmoke 1-5,text,true,,183,143,1,5,http://localhost:8000/,6,0,1
+1764180047760,6,GET /api/v1/health,200,OK,HealthCheckSmoke 1-5,text,true,,164,156,1,5,http://localhost:8000/api/v1/health,6,0,1
+1764180047766,9,GET /,200,OK,HealthCheckSmoke 1-5,text,true,,183,143,1,5,http://localhost:8000/,9,0,1
+1764180047754,22,POST /vehiculos,200,OK,VehiclesCRUDStress 2-4,text,true,,325,310,1,5,http://localhost:8000/api/v1/vehiculos/,22,0,1
+1764180047776,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-5,text,true,,164,156,1,5,http://localhost:8000/api/v1/health,5,0,1
+1764180047782,188,GET /,200,OK,HealthCheckSmoke 1-5,text,true,,183,143,1,7,http://localhost:8000/,187,0,5
+1764180047634,338,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-2,text,false,,288,316,4,7,http://localhost:8000/api/v1/academico/asignar-clase,338,0,180
+1764180047635,340,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-1,text,false,,288,316,4,7,http://localhost:8000/api/v1/academico/asignar-clase,340,0,188
+1764180047634,344,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-3,text,false,,288,316,4,7,http://localhost:8000/api/v1/academico/asignar-clase,344,0,203
+1764180047970,14,GET /api/v1/health,200,OK,HealthCheckSmoke 1-5,text,true,,164,156,1,7,http://localhost:8000/api/v1/health,14,0,2
+1764180047878,113,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-3,text,true,,913,187,1,7,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,113,0,1
+1764180047973,26,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-2,text,true,,145,186,4,7,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=2,26,0,2
+1764180047976,25,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-1,text,true,,145,186,4,7,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=1,25,0,2
+1764180047984,20,GET /,200,OK,HealthCheckSmoke 1-5,text,true,,183,143,1,7,http://localhost:8000/,19,0,1
+1764180047979,25,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-3,text,true,,145,186,4,7,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=3,25,0,2
+1764180047956,48,POST /academico/cursos,201,Created,CoursesHorariosStress 3-4,text,true,,268,258,4,7,http://localhost:8000/api/v1/academico/cursos,48,0,2
+1764180047993,19,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-3,text,true,,913,187,1,7,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,19,0,2
+1764180048004,13,GET /api/v1/health,200,OK,HealthCheckSmoke 1-5,text,true,,164,156,1,7,http://localhost:8000/api/v1/health,13,0,1
+1764180048006,16,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-4,text,true,,911,187,4,6,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,16,0,2
+1764180048013,12,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-3,text,true,,911,187,1,6,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,12,0,1
+1764180048000,32,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-2,text,false,,316,246,4,6,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,32,0,14
+1764180048004,30,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-3,text,false,,316,246,4,6,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,30,0,19
+1764180048023,15,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-4,text,true,,911,187,4,6,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,14,0,1
+1764180048002,37,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-1,text,false,,316,246,4,6,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,37,0,25
+1764180048026,17,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-3,text,true,,912,187,1,6,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,17,0,1
+1764180048033,11,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-2,text,false,,316,204,4,6,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,11,0,1
+1764180048035,12,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-3,text,false,,316,204,3,5,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,12,0,1
+1764180048039,10,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-1,text,false,,316,204,2,4,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,10,0,1
+1764180047777,273,GET /vehiculos,200,OK,VehiclesCRUDStress 2-4,text,true,,401147,160,1,3,http://localhost:8000/api/v1/vehiculos/,272,0,0
+1764180048038,13,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-4,text,true,,913,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,13,0,1
+1764180048044,11,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-3,text,true,,911,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,11,0,1
+1764180048052,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-4,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,6,0,1
+1764180048059,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-4,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,5,0,1
+1764180048065,18,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-4,text,true,,265,255,1,1,http://localhost:8000/api/v1/academico/cursos,18,0,1
+1764180048083,31,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-4,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,31,0,19
+1764180048115,10,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-4,text,true,,145,186,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=4,10,0,2
+1764180048125,28,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-4,text,false,,316,246,1,2,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,28,0,13
+1764180048154,13,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-4,text,false,,316,204,1,2,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,13,0,2
+1764180048145,27,POST /academico/cursos (asignaciones),400,Bad Request,AsignacionesStress 5-4,text,false,,192,255,1,1,http://localhost:8000/api/v1/academico/cursos,27,0,2
+1764180048239,11,GET /,200,OK,HealthCheckSmoke 1-6,text,true,,183,143,1,1,http://localhost:8000/,10,0,2
+1764180048251,8,GET /api/v1/health,200,OK,HealthCheckSmoke 1-6,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,8,0,1
+1764180048260,7,GET /,200,OK,HealthCheckSmoke 1-6,text,true,,183,143,1,1,http://localhost:8000/,7,0,1
+1764180048268,7,GET /api/v1/health,200,OK,HealthCheckSmoke 1-6,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,7,0,1
+1764180048276,7,GET /,200,OK,HealthCheckSmoke 1-6,text,true,,183,143,1,1,http://localhost:8000/,7,0,1
+1764180048284,7,GET /api/v1/health,200,OK,HealthCheckSmoke 1-6,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,7,0,2
+1764180048292,7,GET /,200,OK,HealthCheckSmoke 1-6,text,true,,183,143,1,1,http://localhost:8000/,6,0,1
+1764180048300,9,GET /api/v1/health,200,OK,HealthCheckSmoke 1-6,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,8,0,2
+1764180048309,7,GET /,200,OK,HealthCheckSmoke 1-6,text,true,,183,143,1,1,http://localhost:8000/,6,0,2
+1764180048316,6,GET /api/v1/health,200,OK,HealthCheckSmoke 1-6,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,6,0,1
+1764180048362,21,POST /vehiculos,200,OK,VehiclesCRUDStress 2-5,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,21,0,2
+1764180048385,165,GET /vehiculos,200,OK,VehiclesCRUDStress 2-5,text,true,,401347,160,1,1,http://localhost:8000/api/v1/vehiculos/,164,0,0
+1764180048629,28,POST /academico/cursos,201,Created,CoursesHorariosStress 3-5,text,true,,268,258,1,1,http://localhost:8000/api/v1/academico/cursos,27,0,2
+1764180048659,12,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-5,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,12,0,2
+1764180048672,15,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-5,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,15,0,3
+1764180048688,11,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-5,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,11,0,1
+1764180048699,13,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-5,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,13,0,2
+1764180048713,11,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-5,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,11,0,1
+1764180048737,9,GET /,200,OK,HealthCheckSmoke 1-7,text,true,,183,143,1,2,http://localhost:8000/,9,0,2
+1764180048747,6,GET /api/v1/health,200,OK,HealthCheckSmoke 1-7,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,6,0,1
+1764180048725,27,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-5,text,true,,265,255,1,2,http://localhost:8000/api/v1/academico/cursos,27,0,2
+1764180048753,8,GET /,200,OK,HealthCheckSmoke 1-7,text,true,,183,143,1,2,http://localhost:8000/,8,0,2
+1764180048761,6,GET /api/v1/health,200,OK,HealthCheckSmoke 1-7,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,5,0,1
+1764180048767,6,GET /,200,OK,HealthCheckSmoke 1-7,text,true,,183,143,1,2,http://localhost:8000/,6,0,1
+1764180048753,25,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-5,text,false,,288,316,1,2,http://localhost:8000/api/v1/academico/asignar-clase,25,0,15
+1764180048774,6,GET /api/v1/health,200,OK,HealthCheckSmoke 1-7,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,6,0,0
+1764180048781,9,GET /,200,OK,HealthCheckSmoke 1-7,text,true,,183,143,1,2,http://localhost:8000/,9,0,2
+1764180048779,12,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-5,text,true,,145,186,1,2,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=5,12,0,1
+1764180048791,6,GET /api/v1/health,200,OK,HealthCheckSmoke 1-7,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,5,0,1
+1764180048797,5,GET /,200,OK,HealthCheckSmoke 1-7,text,true,,183,143,1,2,http://localhost:8000/,5,0,1
+1764180048803,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-7,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,4,0,1
+1764180048792,16,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-5,text,false,,316,246,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,16,0,8
+1764180048809,7,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-5,text,false,,316,204,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,7,0,0
+1764180048875,9,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-4,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,9,0,1
+1764180048884,9,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-4,text,true,,911,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,9,0,1
+1764180048893,9,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-4,text,true,,911,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,9,0,1
+1764180048903,7,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-4,text,true,,911,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,7,0,1
+1764180048890,22,POST /academico/cursos (asignaciones),400,Bad Request,AsignacionesStress 5-5,text,false,,192,255,1,2,http://localhost:8000/api/v1/academico/cursos,22,0,2
+1764180048911,8,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-4,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,7,0,1
+1764180048953,16,POST /vehiculos,200,OK,VehiclesCRUDStress 2-6,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,16,0,2
+1764180048970,119,GET /vehiculos,200,OK,VehiclesCRUDStress 2-6,text,true,,401547,160,1,1,http://localhost:8000/api/v1/vehiculos/,118,0,0
+1764180049250,6,GET /,200,OK,HealthCheckSmoke 1-8,text,true,,183,143,1,1,http://localhost:8000/,6,0,1
+1764180049257,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-8,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,5,0,1
+1764180049263,5,GET /,200,OK,HealthCheckSmoke 1-8,text,true,,183,143,1,1,http://localhost:8000/,4,0,1
+1764180049268,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-8,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,5,0,1
+1764180049273,5,GET /,200,OK,HealthCheckSmoke 1-8,text,true,,183,143,1,1,http://localhost:8000/,4,0,1
+1764180049278,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-8,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,5,0,1
+1764180049284,5,GET /,200,OK,HealthCheckSmoke 1-8,text,true,,183,143,1,2,http://localhost:8000/,4,0,1
+1764180049289,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-8,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,5,0,1
+1764180049294,6,GET /,200,OK,HealthCheckSmoke 1-8,text,true,,183,143,1,2,http://localhost:8000/,5,0,1
+1764180049281,21,POST /academico/cursos,201,Created,CoursesHorariosStress 3-6,text,true,,268,258,1,2,http://localhost:8000/api/v1/academico/cursos,21,0,1
+1764180049300,6,GET /api/v1/health,200,OK,HealthCheckSmoke 1-8,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,6,0,1
+1764180049304,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-6,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,7,0,1
+1764180049312,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-6,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,6,0,1
+1764180049319,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-6,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,8,0,1
+1764180049327,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-6,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,7,0,1
+1764180049335,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-6,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,7,0,1
+1764180049342,20,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-6,text,true,,265,255,1,1,http://localhost:8000/api/v1/academico/cursos,20,0,2
+1764180049362,22,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-6,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,22,0,13
+1764180049385,10,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-6,text,true,,145,186,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=6,9,0,1
+1764180049395,17,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-6,text,false,,316,246,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,16,0,6
+1764180049412,9,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-6,text,false,,316,204,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,9,0,1
+1764180049545,32,POST /vehiculos,200,OK,VehiclesCRUDStress 2-7,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,31,0,2
+1764180049638,18,POST /academico/cursos (asignaciones),400,Bad Request,AsignacionesStress 5-6,text,false,,192,255,1,2,http://localhost:8000/api/v1/academico/cursos,18,0,2
+1764180049578,110,GET /vehiculos,200,OK,VehiclesCRUDStress 2-7,text,true,,401747,160,1,1,http://localhost:8000/api/v1/vehiculos/,109,0,0
+1764180049745,6,GET /,200,OK,HealthCheckSmoke 1-9,text,true,,183,143,1,1,http://localhost:8000/,6,0,1
+1764180049751,6,GET /api/v1/health,200,OK,HealthCheckSmoke 1-9,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,6,0,1
+1764180049757,6,GET /,200,OK,HealthCheckSmoke 1-9,text,true,,183,143,1,1,http://localhost:8000/,5,0,1
+1764180049763,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-9,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,5,0,1
+1764180049768,5,GET /,200,OK,HealthCheckSmoke 1-9,text,true,,183,143,1,1,http://localhost:8000/,5,0,1
+1764180049774,6,GET /api/v1/health,200,OK,HealthCheckSmoke 1-9,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,5,0,1
+1764180049780,6,GET /,200,OK,HealthCheckSmoke 1-9,text,true,,183,143,1,1,http://localhost:8000/,6,0,2
+1764180049787,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-9,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,5,0,0
+1764180049792,6,GET /,200,OK,HealthCheckSmoke 1-9,text,true,,183,143,1,1,http://localhost:8000/,5,0,1
+1764180049798,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-9,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,5,0,1
+1764180049884,11,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-5,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,10,0,2
+1764180049895,10,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-5,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,10,0,2
+1764180049905,10,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-5,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,9,0,2
+1764180049915,11,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-5,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,11,0,1
+1764180049927,8,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-5,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,7,0,0
+1764180049962,22,POST /academico/cursos,201,Created,CoursesHorariosStress 3-7,text,true,,268,258,1,1,http://localhost:8000/api/v1/academico/cursos,22,0,2
+1764180049985,10,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-7,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,10,0,2
+1764180049995,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-7,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,7,0,1
+1764180050003,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-7,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,9,0,2
+1764180050013,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-7,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,7,0,1
+1764180050021,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-7,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,6,0,1
+1764180050028,16,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-7,text,true,,265,255,1,1,http://localhost:8000/api/v1/academico/cursos,16,0,1
+1764180050045,21,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-7,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,21,0,13
+1764180050067,8,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-7,text,true,,145,186,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=7,8,0,0
+1764180050076,17,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-7,text,false,,316,246,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,17,0,8
+1764180050093,9,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-7,text,false,,316,204,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,9,0,1
+1764180050149,15,POST /vehiculos,200,OK,VehiclesCRUDStress 2-8,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,15,0,1
+1764180050243,5,GET /,200,OK,HealthCheckSmoke 1-10,text,true,,183,143,1,2,http://localhost:8000/,5,0,1
+1764180050249,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-10,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,4,0,1
+1764180050254,5,GET /,200,OK,HealthCheckSmoke 1-10,text,true,,183,143,1,2,http://localhost:8000/,5,0,0
+1764180050259,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-10,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,4,0,1
+1764180050264,4,GET /,200,OK,HealthCheckSmoke 1-10,text,true,,183,143,1,2,http://localhost:8000/,4,0,1
+1764180050268,6,GET /api/v1/health,200,OK,HealthCheckSmoke 1-10,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,6,0,1
+1764180050165,109,GET /vehiculos,200,OK,VehiclesCRUDStress 2-8,text,true,,401947,160,1,2,http://localhost:8000/api/v1/vehiculos/,109,0,0
+1764180050274,5,GET /,200,OK,HealthCheckSmoke 1-10,text,true,,183,143,1,1,http://localhost:8000/,4,0,1
+1764180050279,4,GET /api/v1/health,200,OK,HealthCheckSmoke 1-10,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,4,0,1
+1764180050284,4,GET /,200,OK,HealthCheckSmoke 1-10,text,true,,183,143,1,1,http://localhost:8000/,4,0,0
+1764180050288,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-10,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,5,0,2
+1764180050384,21,POST /academico/cursos (asignaciones),400,Bad Request,AsignacionesStress 5-7,text,false,,192,255,1,1,http://localhost:8000/api/v1/academico/cursos,21,0,1
+1764180050618,23,POST /academico/cursos,201,Created,CoursesHorariosStress 3-8,text,true,,268,258,1,1,http://localhost:8000/api/v1/academico/cursos,23,0,2
+1764180050642,11,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-8,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,11,0,2
+1764180050654,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-8,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,9,0,1
+1764180050664,10,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-8,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,10,0,0
+1764180050675,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-8,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,7,0,1
+1764180050683,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-8,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,8,0,1
+1764180050692,16,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-8,text,true,,265,255,1,1,http://localhost:8000/api/v1/academico/cursos,15,0,1
+1764180050709,16,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-8,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,16,0,8
+1764180050726,9,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-8,text,true,,145,186,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=8,9,0,1
+1764180050742,5,GET /,200,OK,HealthCheckSmoke 1-11,text,true,,183,143,1,3,http://localhost:8000/,5,0,1
+1764180050736,17,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-8,text,false,,316,246,1,3,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,17,0,8
+1764180050747,6,GET /api/v1/health,200,OK,HealthCheckSmoke 1-11,text,true,,164,156,1,3,http://localhost:8000/api/v1/health,6,0,1
+1764180050754,4,GET /,200,OK,HealthCheckSmoke 1-11,text,true,,183,143,1,3,http://localhost:8000/,4,0,1
+1764180050754,8,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-8,text,false,,316,204,1,3,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,8,0,1
+1764180050742,21,POST /vehiculos,200,OK,VehiclesCRUDStress 2-9,text,true,,325,310,1,2,http://localhost:8000/api/v1/vehiculos/,20,0,1
+1764180050759,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-11,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,5,0,1
+1764180050764,6,GET /,200,OK,HealthCheckSmoke 1-11,text,true,,183,143,1,2,http://localhost:8000/,5,0,1
+1764180050770,41,GET /api/v1/health,200,OK,HealthCheckSmoke 1-11,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,41,0,1
+1764180050812,4,GET /,200,OK,HealthCheckSmoke 1-11,text,true,,183,143,1,2,http://localhost:8000/,4,0,0
+1764180050817,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-11,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,5,0,1
+1764180050823,5,GET /,200,OK,HealthCheckSmoke 1-11,text,true,,183,143,1,2,http://localhost:8000/,4,0,0
+1764180050828,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-11,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,5,0,1
+1764180050763,98,GET /vehiculos,200,OK,VehiclesCRUDStress 2-9,text,true,,402147,160,1,1,http://localhost:8000/api/v1/vehiculos/,97,0,0
+1764180050883,29,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-6,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,29,0,1
+1764180050912,10,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-6,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,9,0,2
+1764180050922,8,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-6,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,8,0,2
+1764180050931,10,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-6,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,10,0,1
+1764180050941,9,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-6,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,9,0,2
+1764180051130,28,POST /academico/cursos (asignaciones),201,Created,AsignacionesStress 5-8,text,true,,265,255,1,1,http://localhost:8000/api/v1/academico/cursos,28,0,2
+1764180051238,5,GET /,200,OK,HealthCheckSmoke 1-12,text,true,,183,143,1,1,http://localhost:8000/,4,0,1
+1764180051243,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-12,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,5,0,1
+1764180051249,5,GET /,200,OK,HealthCheckSmoke 1-12,text,true,,183,143,1,1,http://localhost:8000/,5,0,1
+1764180051255,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-12,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,5,0,1
+1764180051261,4,GET /,200,OK,HealthCheckSmoke 1-12,text,true,,183,143,1,1,http://localhost:8000/,4,0,1
+1764180051266,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-12,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,5,0,0
+1764180051271,5,GET /,200,OK,HealthCheckSmoke 1-12,text,true,,183,143,1,1,http://localhost:8000/,5,0,1
+1764180051276,4,GET /api/v1/health,200,OK,HealthCheckSmoke 1-12,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,4,0,1
+1764180051281,5,GET /,200,OK,HealthCheckSmoke 1-12,text,true,,183,143,1,2,http://localhost:8000/,5,0,1
+1764180051287,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-12,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,5,0,1
+1764180051284,17,POST /academico/cursos,201,Created,CoursesHorariosStress 3-9,text,true,,268,258,1,1,http://localhost:8000/api/v1/academico/cursos,17,0,1
+1764180051302,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-9,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,9,0,1
+1764180051312,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-9,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,7,0,1
+1764180051320,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-9,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,7,0,1
+1764180051328,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-9,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,9,0,2
+1764180051338,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-9,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,6,0,1
+1764180051346,18,POST /vehiculos,200,OK,VehiclesCRUDStress 2-10,text,true,,325,310,1,2,http://localhost:8000/api/v1/vehiculos/,18,0,1
+1764180051345,21,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-9,text,true,,265,255,1,2,http://localhost:8000/api/v1/academico/cursos,21,0,1
+1764180051367,51,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-9,text,false,,288,316,1,2,http://localhost:8000/api/v1/academico/asignar-clase,51,0,9
+1764180051419,9,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-9,text,true,,145,186,1,2,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=9,9,0,1
+1764180051429,16,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-9,text,false,,316,246,1,2,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,16,0,8
+1764180051446,7,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-9,text,false,,316,204,1,2,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,7,0,1
+1764180051365,100,GET /vehiculos,200,OK,VehiclesCRUDStress 2-10,text,true,,402347,160,1,1,http://localhost:8000/api/v1/vehiculos/,99,0,0
+1764180051732,6,GET /,200,OK,HealthCheckSmoke 1-13,text,true,,183,143,1,1,http://localhost:8000/,6,0,2
+1764180051738,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-13,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,5,0,1
+1764180051744,5,GET /,200,OK,HealthCheckSmoke 1-13,text,true,,183,143,1,1,http://localhost:8000/,5,0,1
+1764180051750,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-13,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,5,0,1
+1764180051756,5,GET /,200,OK,HealthCheckSmoke 1-13,text,true,,183,143,1,1,http://localhost:8000/,4,0,1
+1764180051761,4,GET /api/v1/health,200,OK,HealthCheckSmoke 1-13,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,4,0,1
+1764180051766,4,GET /,200,OK,HealthCheckSmoke 1-13,text,true,,183,143,1,1,http://localhost:8000/,3,0,0
+1764180051770,4,GET /api/v1/health,200,OK,HealthCheckSmoke 1-13,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,4,0,1
+1764180051775,5,GET /,200,OK,HealthCheckSmoke 1-13,text,true,,183,143,1,1,http://localhost:8000/,5,0,1
+1764180051781,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-13,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,4,0,0
+1764180051872,7,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-7,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,7,0,1
+1764180051880,8,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-7,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,8,0,1
+1764180051888,9,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-7,text,true,,911,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,8,0,1
+1764180051897,10,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-7,text,true,,911,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,10,0,1
+1764180051908,8,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-7,text,true,,911,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,7,0,2
+1764180051892,24,POST /academico/cursos (asignaciones),400,Bad Request,AsignacionesStress 5-9,text,false,,192,255,1,2,http://localhost:8000/api/v1/academico/cursos,24,0,1
+1764180051950,18,POST /vehiculos,200,OK,VehiclesCRUDStress 2-11,text,true,,325,310,1,2,http://localhost:8000/api/v1/vehiculos/,18,0,2
+1764180051950,18,POST /academico/cursos,201,Created,CoursesHorariosStress 3-10,text,true,,270,260,1,2,http://localhost:8000/api/v1/academico/cursos,18,0,1
+1764180051969,11,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-10,text,true,,911,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,11,0,2
+1764180051981,48,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-10,text,true,,912,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,48,0,1
+1764180052029,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-10,text,true,,913,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,9,0,2
+1764180052038,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-10,text,true,,913,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,8,0,1
+1764180052047,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-10,text,true,,913,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,7,0,1
+1764180052054,20,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-10,text,true,,267,257,1,2,http://localhost:8000/api/v1/academico/cursos,20,0,1
+1764180051969,121,GET /vehiculos,200,OK,VehiclesCRUDStress 2-11,text,true,,402547,160,1,2,http://localhost:8000/api/v1/vehiculos/,120,0,0
+1764180052074,22,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-10,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,22,0,14
+1764180052096,10,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-10,text,true,,145,187,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=10,10,0,1
+1764180052107,20,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-10,text,false,,316,247,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,20,0,10
+1764180052127,8,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-10,text,false,,316,204,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,8,0,1
+1764180052246,6,GET /,200,OK,HealthCheckSmoke 1-14,text,true,,183,143,1,1,http://localhost:8000/,6,0,1
+1764180052253,6,GET /api/v1/health,200,OK,HealthCheckSmoke 1-14,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,6,0,1
+1764180052260,5,GET /,200,OK,HealthCheckSmoke 1-14,text,true,,183,143,1,1,http://localhost:8000/,5,0,1
+1764180052265,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-14,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,5,0,1
+1764180052271,6,GET /,200,OK,HealthCheckSmoke 1-14,text,true,,183,143,1,1,http://localhost:8000/,5,0,1
+1764180052277,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-14,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,4,0,1
+1764180052282,5,GET /,200,OK,HealthCheckSmoke 1-14,text,true,,183,143,1,1,http://localhost:8000/,5,0,1
+1764180052287,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-14,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,5,0,1
+1764180052292,5,GET /,200,OK,HealthCheckSmoke 1-14,text,true,,183,143,1,1,http://localhost:8000/,5,0,1
+1764180052298,4,GET /api/v1/health,200,OK,HealthCheckSmoke 1-14,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,4,0,0
+1764180052555,15,POST /vehiculos,200,OK,VehiclesCRUDStress 2-12,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,15,0,1
+1764180052617,14,POST /academico/cursos,201,Created,CoursesHorariosStress 3-11,text,true,,270,260,1,2,http://localhost:8000/api/v1/academico/cursos,14,0,1
+1764180052633,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-11,text,true,,911,187,1,3,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,6,0,0
+1764180052640,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-11,text,true,,911,187,1,3,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,8,0,1
+1764180052633,17,POST /academico/cursos (asignaciones),400,Bad Request,AsignacionesStress 5-10,text,false,,192,257,1,3,http://localhost:8000/api/v1/academico/cursos,17,0,1
+1764180052571,83,GET /vehiculos,200,OK,VehiclesCRUDStress 2-12,text,true,,402747,160,1,2,http://localhost:8000/api/v1/vehiculos/,82,0,0
+1764180052649,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-11,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,7,0,1
+1764180052657,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-11,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,9,0,2
+1764180052667,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-11,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,9,0,1
+1764180052677,17,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-11,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,17,0,1
+1764180052695,23,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-11,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,23,0,16
+1764180052719,11,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-11,text,true,,145,187,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=11,11,0,2
+1764180052742,6,GET /,200,OK,HealthCheckSmoke 1-15,text,true,,183,143,1,2,http://localhost:8000/,6,0,1
+1764180052731,18,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-11,text,false,,316,247,1,2,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,18,0,11
+1764180052748,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-15,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,5,0,2
+1764180052749,8,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-11,text,false,,316,204,1,2,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,8,0,1
+1764180052754,5,GET /,200,OK,HealthCheckSmoke 1-15,text,true,,183,143,1,1,http://localhost:8000/,5,0,1
+1764180052760,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-15,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,5,0,1
+1764180052766,6,GET /,200,OK,HealthCheckSmoke 1-15,text,true,,183,143,1,1,http://localhost:8000/,5,0,0
+1764180052772,4,GET /api/v1/health,200,OK,HealthCheckSmoke 1-15,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,4,0,1
+1764180052777,4,GET /,200,OK,HealthCheckSmoke 1-15,text,true,,183,143,1,1,http://localhost:8000/,4,0,0
+1764180052782,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-15,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,4,0,0
+1764180052787,6,GET /,200,OK,HealthCheckSmoke 1-15,text,true,,183,143,1,1,http://localhost:8000/,5,0,1
+1764180052793,6,GET /api/v1/health,200,OK,HealthCheckSmoke 1-15,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,6,0,2
+1764180052880,9,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-8,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,9,0,1
+1764180052890,10,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-8,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,10,0,1
+1764180052900,10,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-8,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,9,0,1
+1764180052910,9,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-8,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,9,0,1
+1764180052920,6,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-8,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,6,0,0
+1764180053156,22,POST /vehiculos,200,OK,VehiclesCRUDStress 2-13,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,22,0,2
+1764180053234,5,GET /,200,OK,HealthCheckSmoke 1-16,text,true,,183,143,1,2,http://localhost:8000/,5,0,1
+1764180053239,4,GET /api/v1/health,200,OK,HealthCheckSmoke 1-16,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,3,0,1
+1764180053243,4,GET /,200,OK,HealthCheckSmoke 1-16,text,true,,183,143,1,2,http://localhost:8000/,4,0,0
+1764180053247,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-16,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,5,0,1
+1764180053252,5,GET /,200,OK,HealthCheckSmoke 1-16,text,true,,183,143,1,2,http://localhost:8000/,5,0,1
+1764180053257,4,GET /api/v1/health,200,OK,HealthCheckSmoke 1-16,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,4,0,1
+1764180053179,86,GET /vehiculos,200,OK,VehiclesCRUDStress 2-13,text,true,,402947,160,1,2,http://localhost:8000/api/v1/vehiculos/,85,0,0
+1764180053262,4,GET /,200,OK,HealthCheckSmoke 1-16,text,true,,183,143,1,1,http://localhost:8000/,4,0,0
+1764180053266,4,GET /api/v1/health,200,OK,HealthCheckSmoke 1-16,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,4,0,1
+1764180053271,4,GET /,200,OK,HealthCheckSmoke 1-16,text,true,,183,143,1,1,http://localhost:8000/,4,0,0
+1764180053276,3,GET /api/v1/health,200,OK,HealthCheckSmoke 1-16,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,3,0,0
+1764180053281,15,POST /academico/cursos,201,Created,CoursesHorariosStress 3-12,text,true,,270,260,1,1,http://localhost:8000/api/v1/academico/cursos,14,0,1
+1764180053297,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-12,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,7,0,1
+1764180053304,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-12,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,6,0,1
+1764180053310,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-12,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,6,0,1
+1764180053317,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-12,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,6,0,0
+1764180053323,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-12,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,6,0,1
+1764180053330,14,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-12,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,14,0,1
+1764180053346,25,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-12,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,25,0,14
+1764180053372,9,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-12,text,true,,145,187,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=12,8,0,1
+1764180053381,23,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-12,text,false,,316,247,1,2,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,23,0,10
+1764180053392,17,POST /academico/cursos (asignaciones),201,Created,AsignacionesStress 5-11,text,true,,267,257,1,2,http://localhost:8000/api/v1/academico/cursos,17,0,1
+1764180053404,8,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-12,text,false,,316,204,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,8,0,1
+1764180053746,6,GET /,200,OK,HealthCheckSmoke 1-17,text,true,,183,143,1,2,http://localhost:8000/,5,0,2
+1764180053752,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-17,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,5,0,1
+1764180053758,5,GET /,200,OK,HealthCheckSmoke 1-17,text,true,,183,143,1,2,http://localhost:8000/,4,0,1
+1764180053746,18,POST /vehiculos,200,OK,VehiclesCRUDStress 2-14,text,true,,325,310,1,2,http://localhost:8000/api/v1/vehiculos/,18,0,2
+1764180053763,4,GET /api/v1/health,200,OK,HealthCheckSmoke 1-17,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,4,0,1
+1764180053768,5,GET /,200,OK,HealthCheckSmoke 1-17,text,true,,183,143,1,2,http://localhost:8000/,5,0,1
+1764180053773,25,GET /api/v1/health,200,OK,HealthCheckSmoke 1-17,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,25,0,1
+1764180053799,4,GET /,200,OK,HealthCheckSmoke 1-17,text,true,,183,143,1,2,http://localhost:8000/,4,0,1
+1764180053804,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-17,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,5,0,1
+1764180053810,4,GET /,200,OK,HealthCheckSmoke 1-17,text,true,,183,143,1,2,http://localhost:8000/,4,0,0
+1764180053814,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-17,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,5,0,1
+1764180053764,85,GET /vehiculos,200,OK,VehiclesCRUDStress 2-14,text,true,,403147,160,1,1,http://localhost:8000/api/v1/vehiculos/,85,0,0
+1764180053884,11,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-9,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,11,0,1
+1764180053896,8,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-9,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,7,0,1
+1764180053904,11,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-9,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,11,0,2
+1764180053915,9,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-9,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,9,0,1
+1764180053925,8,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-9,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,8,0,1
+1764180053946,20,POST /academico/cursos,201,Created,CoursesHorariosStress 3-13,text,true,,270,260,1,1,http://localhost:8000/api/v1/academico/cursos,20,0,2
+1764180053967,11,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-13,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,11,0,2
+1764180053979,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-13,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,8,0,1
+1764180053988,10,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-13,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,10,0,2
+1764180053999,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-13,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,9,0,0
+1764180054008,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-13,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,9,0,1
+1764180054017,23,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-13,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,23,0,2
+1764180054041,23,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-13,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,23,0,17
+1764180054065,10,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-13,text,true,,145,187,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=13,10,0,1
+1764180054076,28,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-13,text,false,,316,247,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,28,0,13
+1764180054104,14,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-13,text,false,,316,204,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,14,0,1
+1764180054131,28,POST /academico/cursos (asignaciones),201,Created,AsignacionesStress 5-12,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,28,0,2
+1764180054239,5,GET /,200,OK,HealthCheckSmoke 1-18,text,true,,183,143,1,1,http://localhost:8000/,5,0,1
+1764180054245,6,GET /api/v1/health,200,OK,HealthCheckSmoke 1-18,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,6,0,1
+1764180054252,9,GET /,200,OK,HealthCheckSmoke 1-18,text,true,,183,143,1,1,http://localhost:8000/,9,0,2
+1764180054262,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-18,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,5,0,1
+1764180054268,7,GET /,200,OK,HealthCheckSmoke 1-18,text,true,,183,143,1,1,http://localhost:8000/,6,0,1
+1764180054275,6,GET /api/v1/health,200,OK,HealthCheckSmoke 1-18,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,6,0,2
+1764180054282,6,GET /,200,OK,HealthCheckSmoke 1-18,text,true,,183,143,1,1,http://localhost:8000/,6,0,1
+1764180054289,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-18,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,5,0,2
+1764180054295,6,GET /,200,OK,HealthCheckSmoke 1-18,text,true,,183,143,1,1,http://localhost:8000/,5,0,1
+1764180054301,6,GET /api/v1/health,200,OK,HealthCheckSmoke 1-18,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,6,0,2
+1764180054348,26,POST /vehiculos,200,OK,VehiclesCRUDStress 2-15,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,26,0,2
+1764180054375,100,GET /vehiculos,200,OK,VehiclesCRUDStress 2-15,text,true,,403347,160,1,1,http://localhost:8000/api/v1/vehiculos/,98,0,0
+1764180054612,19,POST /academico/cursos,201,Created,CoursesHorariosStress 3-14,text,true,,270,260,1,1,http://localhost:8000/api/v1/academico/cursos,19,0,2
+1764180054632,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-14,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,6,0,0
+1764180054638,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-14,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,6,0,1
+1764180054645,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-14,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,7,0,0
+1764180054652,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-14,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,7,0,1
+1764180054660,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-14,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,7,0,0
+1764180054668,17,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-14,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,17,0,0
+1764180054686,23,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-14,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,23,0,15
+1764180054710,9,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-14,text,true,,145,187,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=14,9,0,1
+1764180054720,19,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-14,text,false,,316,247,1,2,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,19,0,10
+1764180054734,6,GET /,200,OK,HealthCheckSmoke 1-19,text,true,,183,143,1,2,http://localhost:8000/,6,0,1
+1764180054741,4,GET /api/v1/health,200,OK,HealthCheckSmoke 1-19,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,4,0,0
+1764180054739,9,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-14,text,false,,316,204,1,2,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,9,0,1
+1764180054746,5,GET /,200,OK,HealthCheckSmoke 1-19,text,true,,183,143,1,1,http://localhost:8000/,4,0,0
+1764180054751,6,GET /api/v1/health,200,OK,HealthCheckSmoke 1-19,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,6,0,1
+1764180054757,5,GET /,200,OK,HealthCheckSmoke 1-19,text,true,,183,143,1,1,http://localhost:8000/,5,0,1
+1764180054762,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-19,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,5,0,1
+1764180054767,7,GET /,200,OK,HealthCheckSmoke 1-19,text,true,,183,143,1,1,http://localhost:8000/,7,0,1
+1764180054774,6,GET /api/v1/health,200,OK,HealthCheckSmoke 1-19,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,6,0,1
+1764180054780,5,GET /,200,OK,HealthCheckSmoke 1-19,text,true,,183,143,1,1,http://localhost:8000/,5,0,1
+1764180054786,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-19,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,5,0,1
+1764180054874,12,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-10,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,12,0,3
+1764180054886,9,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-10,text,true,,913,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,9,0,1
+1764180054895,7,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-10,text,true,,911,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,7,0,2
+1764180054903,9,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-10,text,true,,911,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,9,0,1
+1764180054891,22,POST /academico/cursos (asignaciones),400,Bad Request,AsignacionesStress 5-13,text,false,,192,257,1,2,http://localhost:8000/api/v1/academico/cursos,22,0,2
+1764180054912,9,GET /academico/disponibilidad,200,OK,DisponibilidadStress 4-10,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,9,0,1
+1764180054949,16,POST /vehiculos,200,OK,VehiclesCRUDStress 2-16,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,16,0,2
+1764180054966,126,GET /vehiculos,200,OK,VehiclesCRUDStress 2-16,text,true,,403547,160,1,1,http://localhost:8000/api/v1/vehiculos/,125,0,0
+1764180055243,6,GET /,200,OK,HealthCheckSmoke 1-20,text,true,,183,143,1,1,http://localhost:8000/,6,0,2
+1764180055250,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-20,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,4,0,0
+1764180055255,4,GET /,200,OK,HealthCheckSmoke 1-20,text,true,,183,143,1,1,http://localhost:8000/,4,0,1
+1764180055260,4,GET /api/v1/health,200,OK,HealthCheckSmoke 1-20,text,true,,164,156,1,1,http://localhost:8000/api/v1/health,4,0,0
+1764180055264,5,GET /,200,OK,HealthCheckSmoke 1-20,text,true,,183,143,1,1,http://localhost:8000/,5,0,1
+1764180055270,4,GET /api/v1/health,200,OK,HealthCheckSmoke 1-20,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,4,0,1
+1764180055274,5,GET /,200,OK,HealthCheckSmoke 1-20,text,true,,183,143,1,2,http://localhost:8000/,4,0,1
+1764180055279,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-20,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,5,0,1
+1764180055284,6,GET /,200,OK,HealthCheckSmoke 1-20,text,true,,183,143,1,2,http://localhost:8000/,6,0,1
+1764180055274,20,POST /academico/cursos,201,Created,CoursesHorariosStress 3-15,text,true,,270,260,1,2,http://localhost:8000/api/v1/academico/cursos,19,0,1
+1764180055291,5,GET /api/v1/health,200,OK,HealthCheckSmoke 1-20,text,true,,164,156,1,2,http://localhost:8000/api/v1/health,5,0,1
+1764180055295,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-15,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,6,0,0
+1764180055302,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-15,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,9,0,1
+1764180055311,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-15,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,7,0,1
+1764180055318,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-15,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,7,0,1
+1764180055326,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-15,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,7,0,0
+1764180055333,16,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-15,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,16,0,1
+1764180055350,33,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-15,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,33,0,24
+1764180055384,11,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-15,text,true,,145,187,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=15,10,0,2
+1764180055395,19,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-15,text,false,,316,247,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,19,0,11
+1764180055415,10,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-15,text,false,,316,204,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,10,0,1
+1764180055538,17,POST /vehiculos,200,OK,VehiclesCRUDStress 2-17,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,17,0,1
+1764180055556,83,GET /vehiculos,200,OK,VehiclesCRUDStress 2-17,text,true,,403747,160,1,2,http://localhost:8000/api/v1/vehiculos/,81,0,0
+1764180055629,17,POST /academico/cursos (asignaciones),201,Created,AsignacionesStress 5-14,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,17,0,1
+1764180055955,22,POST /academico/cursos,201,Created,CoursesHorariosStress 3-16,text,true,,270,260,1,1,http://localhost:8000/api/v1/academico/cursos,22,0,2
+1764180055978,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-16,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,9,0,1
+1764180055988,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-16,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,6,0,1
+1764180055995,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-16,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,7,0,1
+1764180056002,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-16,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,8,0,1
+1764180056011,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-16,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,6,0,0
+1764180056017,15,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-16,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,15,0,1
+1764180056032,17,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-16,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,17,0,9
+1764180056049,9,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-16,text,true,,145,187,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=16,9,0,1
+1764180056058,21,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-16,text,false,,316,247,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,21,0,13
+1764180056079,8,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-16,text,false,,316,204,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,7,0,1
+1764180056136,21,POST /vehiculos,200,OK,VehiclesCRUDStress 2-18,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,21,0,2
+1764180056157,127,GET /vehiculos,200,OK,VehiclesCRUDStress 2-18,text,true,,403947,160,1,1,http://localhost:8000/api/v1/vehiculos/,127,0,0
+1764180056383,19,POST /academico/cursos (asignaciones),201,Created,AsignacionesStress 5-15,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,19,0,1
+1764180056600,19,POST /academico/cursos,201,Created,CoursesHorariosStress 3-17,text,true,,270,260,1,1,http://localhost:8000/api/v1/academico/cursos,19,0,2
+1764180056620,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-17,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,7,0,0
+1764180056627,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-17,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,6,0,1
+1764180056633,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-17,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,8,0,1
+1764180056641,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-17,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,7,0,1
+1764180056648,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-17,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,6,0,1
+1764180056655,14,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-17,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,14,0,1
+1764180056670,15,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-17,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,15,0,8
+1764180056686,8,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-17,text,true,,145,187,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=17,8,0,1
+1764180056695,13,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-17,text,false,,316,247,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,13,0,6
+1764180056709,6,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-17,text,false,,316,204,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,6,0,0
+1764180056737,18,POST /vehiculos,200,OK,VehiclesCRUDStress 2-19,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,18,0,1
+1764180056755,96,GET /vehiculos,200,OK,VehiclesCRUDStress 2-19,text,true,,404147,160,1,1,http://localhost:8000/api/v1/vehiculos/,95,0,0
+1764180057141,22,POST /academico/cursos (asignaciones),201,Created,AsignacionesStress 5-16,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,22,0,2
+1764180057278,17,POST /academico/cursos,201,Created,CoursesHorariosStress 3-18,text,true,,270,260,1,1,http://localhost:8000/api/v1/academico/cursos,17,0,1
+1764180057296,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-18,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,6,0,0
+1764180057303,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-18,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,7,0,1
+1764180057310,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-18,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,6,0,1
+1764180057317,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-18,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,5,0,0
+1764180057323,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-18,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,7,0,1
+1764180057330,16,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-18,text,true,,267,257,1,2,http://localhost:8000/api/v1/academico/cursos,15,0,1
+1764180057340,16,POST /vehiculos,200,OK,VehiclesCRUDStress 2-20,text,true,,325,310,1,2,http://localhost:8000/api/v1/vehiculos/,16,0,1
+1764180057346,20,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-18,text,false,,288,316,1,2,http://localhost:8000/api/v1/academico/asignar-clase,19,0,11
+1764180057366,41,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-18,text,true,,145,187,1,2,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=18,41,0,1
+1764180057407,16,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-18,text,false,,316,247,1,2,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,16,0,8
+1764180057424,7,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-18,text,false,,316,204,1,2,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,7,0,1
+1764180057356,100,GET /vehiculos,200,OK,VehiclesCRUDStress 2-20,text,true,,404347,160,1,1,http://localhost:8000/api/v1/vehiculos/,99,0,0
+1764180057881,18,POST /academico/cursos (asignaciones),201,Created,AsignacionesStress 5-17,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,18,0,2
+1764180057929,19,POST /vehiculos,200,OK,VehiclesCRUDStress 2-21,text,true,,325,310,1,2,http://localhost:8000/api/v1/vehiculos/,18,0,2
+1764180057945,17,POST /academico/cursos,201,Created,CoursesHorariosStress 3-19,text,true,,270,260,1,2,http://localhost:8000/api/v1/academico/cursos,17,0,1
+1764180057963,46,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-19,text,true,,911,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,46,0,1
+1764180058009,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-19,text,true,,912,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,9,0,1
+1764180058018,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-19,text,true,,911,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,9,0,2
+1764180058027,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-19,text,true,,911,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,8,0,1
+1764180058036,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-19,text,true,,911,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,8,0,1
+1764180057948,113,GET /vehiculos,200,OK,VehiclesCRUDStress 2-21,text,true,,404547,160,1,2,http://localhost:8000/api/v1/vehiculos/,112,0,0
+1764180058045,17,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-19,text,true,,267,257,1,2,http://localhost:8000/api/v1/academico/cursos,17,0,1
+1764180058063,19,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-19,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,19,0,12
+1764180058083,8,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-19,text,true,,145,187,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=19,8,0,1
+1764180058092,12,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-19,text,false,,316,247,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,12,0,5
+1764180058105,7,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-19,text,false,,316,204,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,7,0,1
+1764180058539,17,POST /vehiculos,200,OK,VehiclesCRUDStress 2-22,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,17,0,2
+1764180058601,16,POST /academico/cursos,201,Created,CoursesHorariosStress 3-20,text,true,,270,260,1,2,http://localhost:8000/api/v1/academico/cursos,16,0,2
+1764180058618,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-20,text,true,,911,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,7,0,1
+1764180058625,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-20,text,true,,911,187,1,3,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,7,0,1
+1764180058632,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-20,text,true,,911,187,1,3,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,7,0,1
+1764180058557,87,GET /vehiculos,200,OK,VehiclesCRUDStress 2-22,text,true,,404747,160,1,3,http://localhost:8000/api/v1/vehiculos/,86,0,0
+1764180058640,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-20,text,true,,911,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,8,0,1
+1764180058633,19,POST /academico/cursos (asignaciones),201,Created,AsignacionesStress 5-18,text,true,,267,257,1,2,http://localhost:8000/api/v1/academico/cursos,19,0,1
+1764180058648,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-20,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,7,0,1
+1764180058655,15,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-20,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,15,0,1
+1764180058671,26,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-20,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,26,0,12
+1764180058697,10,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-20,text,true,,145,187,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=20,10,0,1
+1764180058708,13,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-20,text,false,,316,247,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,13,0,6
+1764180058722,11,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-20,text,false,,316,204,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,11,0,2
+1764180059129,16,POST /vehiculos,200,OK,VehiclesCRUDStress 2-23,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,16,0,1
+1764180059145,82,GET /vehiculos,200,OK,VehiclesCRUDStress 2-23,text,true,,404947,160,1,1,http://localhost:8000/api/v1/vehiculos/,81,0,0
+1764180059269,22,POST /academico/cursos,201,Created,CoursesHorariosStress 3-21,text,true,,270,260,1,1,http://localhost:8000/api/v1/academico/cursos,21,0,1
+1764180059291,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-21,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,7,0,1
+1764180059299,10,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-21,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,10,0,1
+1764180059309,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-21,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,6,0,1
+1764180059315,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-21,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,8,0,1
+1764180059323,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-21,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,7,0,1
+1764180059330,16,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-21,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,16,0,1
+1764180059347,19,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-21,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,19,0,12
+1764180059367,9,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-21,text,true,,145,187,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=21,9,0,1
+1764180059376,13,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-21,text,false,,316,247,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,13,0,6
+1764180059389,8,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-21,text,false,,316,204,1,2,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,7,0,1
+1764180059392,17,POST /academico/cursos (asignaciones),201,Created,AsignacionesStress 5-19,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,17,0,1
+1764180059733,14,POST /vehiculos,200,OK,VehiclesCRUDStress 2-24,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,14,0,1
+1764180059747,90,GET /vehiculos,200,OK,VehiclesCRUDStress 2-24,text,true,,405147,160,1,1,http://localhost:8000/api/v1/vehiculos/,89,0,0
+1764180059920,21,POST /academico/cursos,201,Created,CoursesHorariosStress 3-22,text,true,,270,260,1,1,http://localhost:8000/api/v1/academico/cursos,21,0,2
+1764180059942,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-22,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,9,0,1
+1764180059952,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-22,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,8,0,1
+1764180059961,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-22,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,7,0,1
+1764180059969,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-22,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,6,0,1
+1764180059976,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-22,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,9,0,1
+1764180059986,15,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-22,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,15,0,1
+1764180060005,26,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-22,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,26,0,16
+1764180060031,9,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-22,text,true,,145,187,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=22,9,0,1
+1764180060041,13,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-22,text,false,,316,247,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,13,0,6
+1764180060054,9,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-22,text,false,,316,204,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,9,0,1
+1764180060137,22,POST /academico/cursos (asignaciones),201,Created,AsignacionesStress 5-20,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,21,0,1
+1764180060340,22,POST /vehiculos,200,OK,VehiclesCRUDStress 2-25,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,22,0,1
+1764180060363,90,GET /vehiculos,200,OK,VehiclesCRUDStress 2-25,text,true,,405347,160,1,1,http://localhost:8000/api/v1/vehiculos/,89,0,0
+1764180060590,22,POST /academico/cursos,201,Created,CoursesHorariosStress 3-23,text,true,,270,260,1,1,http://localhost:8000/api/v1/academico/cursos,22,0,3
+1764180060613,5,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-23,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,5,0,0
+1764180060619,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-23,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,6,0,1
+1764180060626,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-23,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,8,0,0
+1764180060634,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-23,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,6,0,1
+1764180060640,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-23,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,6,0,1
+1764180060646,15,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-23,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,15,0,1
+1764180060661,17,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-23,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,16,0,9
+1764180060678,8,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-23,text,true,,145,187,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=23,8,0,1
+1764180060687,14,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-23,text,false,,316,247,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,14,0,6
+1764180060701,9,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-23,text,false,,316,204,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,8,0,1
+1764180060932,18,POST /vehiculos,200,OK,VehiclesCRUDStress 2-26,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,18,0,2
+1764180060951,93,GET /vehiculos,200,OK,VehiclesCRUDStress 2-26,text,true,,405547,160,1,1,http://localhost:8000/api/v1/vehiculos/,92,0,0
+1764180061256,13,POST /academico/cursos,201,Created,CoursesHorariosStress 3-24,text,true,,270,260,1,1,http://localhost:8000/api/v1/academico/cursos,13,0,1
+1764180061271,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-24,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,8,0,1
+1764180061279,11,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-24,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,11,0,1
+1764180061291,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-24,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,7,0,0
+1764180061299,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-24,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,7,0,0
+1764180061307,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-24,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,8,0,0
+1764180061316,15,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-24,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,15,0,1
+1764180061331,18,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-24,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,18,0,10
+1764180061350,8,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-24,text,true,,145,187,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=24,8,0,0
+1764180061359,12,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-24,text,false,,316,247,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,12,0,6
+1764180061372,6,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-24,text,false,,316,204,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,6,0,0
+1764180061523,22,POST /vehiculos,200,OK,VehiclesCRUDStress 2-27,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,22,0,2
+1764180061546,99,GET /vehiculos,200,OK,VehiclesCRUDStress 2-27,text,true,,405747,160,1,1,http://localhost:8000/api/v1/vehiculos/,98,0,0
+1764180061930,23,POST /academico/cursos,201,Created,CoursesHorariosStress 3-25,text,true,,270,260,1,1,http://localhost:8000/api/v1/academico/cursos,23,0,1
+1764180061954,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-25,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,8,0,0
+1764180061962,10,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-25,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,10,0,1
+1764180061972,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-25,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,7,0,1
+1764180061979,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-25,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,8,0,1
+1764180061987,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-25,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,7,0,1
+1764180061994,15,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-25,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,15,0,1
+1764180062009,12,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-25,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,12,0,5
+1764180062022,6,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-25,text,true,,145,187,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=25,6,0,0
+1764180062029,14,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-25,text,false,,316,247,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,13,0,6
+1764180062043,8,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-25,text,false,,316,204,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,7,0,1
+1764180062132,24,POST /vehiculos,200,OK,VehiclesCRUDStress 2-28,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,24,0,2
+1764180062157,124,GET /vehiculos,200,OK,VehiclesCRUDStress 2-28,text,true,,405947,160,1,1,http://localhost:8000/api/v1/vehiculos/,123,0,0
+1764180062583,21,POST /academico/cursos,201,Created,CoursesHorariosStress 3-26,text,true,,270,260,1,1,http://localhost:8000/api/v1/academico/cursos,20,0,2
+1764180062604,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-26,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,9,0,2
+1764180062613,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-26,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,8,0,1
+1764180062621,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-26,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,7,0,1
+1764180062629,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-26,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,7,0,1
+1764180062637,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-26,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,8,0,0
+1764180062645,16,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-26,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,16,0,1
+1764180062662,21,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-26,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,21,0,11
+1764180062684,12,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-26,text,true,,145,187,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=26,12,0,1
+1764180062696,20,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-26,text,false,,316,247,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,20,0,11
+1764180062716,9,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-26,text,false,,316,204,1,2,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,8,0,2
+1764180062724,21,POST /vehiculos,200,OK,VehiclesCRUDStress 2-29,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,21,0,1
+1764180062746,133,GET /vehiculos,200,OK,VehiclesCRUDStress 2-29,text,true,,406147,160,1,1,http://localhost:8000/api/v1/vehiculos/,132,0,0
+1764180063256,22,POST /academico/cursos,201,Created,CoursesHorariosStress 3-27,text,true,,270,260,1,1,http://localhost:8000/api/v1/academico/cursos,22,0,3
+1764180063279,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-27,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,9,0,1
+1764180063288,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-27,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,8,0,1
+1764180063297,10,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-27,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,10,0,1
+1764180063307,11,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-27,text,true,,912,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,11,0,2
+1764180063319,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-27,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=6,9,0,1
+1764180063328,24,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-27,text,true,,267,257,1,2,http://localhost:8000/api/v1/academico/cursos,24,0,1
+1764180063331,22,POST /vehiculos,200,OK,VehiclesCRUDStress 2-30,text,true,,325,310,1,2,http://localhost:8000/api/v1/vehiculos/,22,0,1
+1764180063353,62,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-27,text,false,,288,316,1,2,http://localhost:8000/api/v1/academico/asignar-clase,62,0,14
+1764180063416,11,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-27,text,true,,145,187,1,2,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=27,11,0,1
+1764180063428,19,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-27,text,false,,316,247,1,2,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,19,0,8
+1764180063448,9,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-27,text,false,,316,204,1,2,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,9,0,1
+1764180063353,145,GET /vehiculos,200,OK,VehiclesCRUDStress 2-30,text,true,,406347,160,1,1,http://localhost:8000/api/v1/vehiculos/,144,0,0
+1764180063922,19,POST /vehiculos,200,OK,VehiclesCRUDStress 2-31,text,true,,325,310,1,2,http://localhost:8000/api/v1/vehiculos/,19,0,1
+1764180063922,19,POST /academico/cursos,201,Created,CoursesHorariosStress 3-28,text,true,,270,260,1,2,http://localhost:8000/api/v1/academico/cursos,19,0,1
+1764180063942,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-28,text,true,,911,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,8,0,1
+1764180063950,57,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-28,text,true,,911,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,57,0,1
+1764180064008,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-28,text,true,,912,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,9,0,1
+1764180064017,10,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-28,text,true,,913,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,10,0,1
+1764180064027,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-28,text,true,,911,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=0,7,0,1
+1764180063942,112,GET /vehiculos,200,OK,VehiclesCRUDStress 2-31,text,true,,406547,160,1,2,http://localhost:8000/api/v1/vehiculos/,111,0,0
+1764180064034,20,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-28,text,true,,267,257,1,2,http://localhost:8000/api/v1/academico/cursos,20,0,2
+1764180064054,17,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-28,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,17,0,8
+1764180064072,8,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-28,text,true,,145,187,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=28,8,0,0
+1764180064081,15,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-28,text,false,,316,247,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,15,0,8
+1764180064097,7,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-28,text,false,,316,204,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,7,0,0
+1764180064531,18,POST /vehiculos,200,OK,VehiclesCRUDStress 2-32,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,18,0,2
+1764180064592,16,POST /academico/cursos,201,Created,CoursesHorariosStress 3-29,text,true,,270,260,1,2,http://localhost:8000/api/v1/academico/cursos,16,0,1
+1764180064609,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-29,text,true,,912,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,9,0,0
+1764180064619,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-29,text,true,,911,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,7,0,1
+1764180064626,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-29,text,true,,913,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=2,9,0,1
+1764180064635,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-29,text,true,,912,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,8,0,1
+1764180064643,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-29,text,true,,912,187,1,2,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=1,9,0,1
+1764180064550,105,GET /vehiculos,200,OK,VehiclesCRUDStress 2-32,text,true,,406747,160,1,2,http://localhost:8000/api/v1/vehiculos/,104,0,0
+1764180064653,17,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-29,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,17,0,1
+1764180064671,21,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-29,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,21,0,13
+1764180064693,8,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-29,text,true,,145,187,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=29,8,0,1
+1764180064702,14,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-29,text,false,,316,247,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,14,0,7
+1764180064716,8,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-29,text,false,,316,204,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,8,0,1
+1764180065120,20,POST /vehiculos,200,OK,VehiclesCRUDStress 2-33,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,20,0,2
+1764180065140,138,GET /vehiculos,200,OK,VehiclesCRUDStress 2-33,text,true,,406947,160,1,2,http://localhost:8000/api/v1/vehiculos/,137,0,0
+1764180065262,16,POST /academico/cursos,201,Created,CoursesHorariosStress 3-30,text,true,,270,260,1,2,http://localhost:8000/api/v1/academico/cursos,16,0,1
+1764180065279,6,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-30,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,6,0,0
+1764180065285,9,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-30,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,9,0,2
+1764180065295,7,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-30,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=4,6,0,0
+1764180065302,8,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-30,text,true,,911,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=5,7,0,1
+1764180065310,10,GET /academico/disponibilidad,200,OK,CoursesHorariosStress 3-30,text,true,,913,187,1,1,http://localhost:8000/api/v1/academico/disponibilidad?dia_semana=3,10,0,1
+1764180065321,17,POST /academico/cursos (asignaciones),201,Created,CoursesHorariosStress 3-30,text,true,,267,257,1,1,http://localhost:8000/api/v1/academico/cursos,16,0,1
+1764180065338,24,POST /academico/asignar-clase,422,Unprocessable Entity,CoursesHorariosStress 3-30,text,false,,288,316,1,1,http://localhost:8000/api/v1/academico/asignar-clase,24,0,16
+1764180065363,10,GET /academico/asignaciones (list),200,OK,CoursesHorariosStress 3-30,text,true,,145,187,1,1,http://localhost:8000/api/v1/academico/asignaciones?profesor_id=30,9,0,1
+1764180065373,19,PUT /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-30,text,false,,316,247,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,18,0,8
+1764180065392,9,DELETE /academico/asignaciones/{id},422,Unprocessable Entity,CoursesHorariosStress 3-30,text,false,,316,204,1,1,http://localhost:8000/api/v1/academico/asignaciones/NOT_FOUND,9,0,1
+1764180065727,14,POST /vehiculos,200,OK,VehiclesCRUDStress 2-34,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,14,0,1
+1764180065741,80,GET /vehiculos,200,OK,VehiclesCRUDStress 2-34,text,true,,407147,160,1,1,http://localhost:8000/api/v1/vehiculos/,79,0,0
+1764180066332,18,POST /vehiculos,200,OK,VehiclesCRUDStress 2-35,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,18,0,2
+1764180066351,80,GET /vehiculos,200,OK,VehiclesCRUDStress 2-35,text,true,,407347,160,1,1,http://localhost:8000/api/v1/vehiculos/,79,0,0
+1764180066923,21,POST /vehiculos,200,OK,VehiclesCRUDStress 2-36,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,21,0,1
+1764180066945,103,GET /vehiculos,200,OK,VehiclesCRUDStress 2-36,text,true,,407547,160,1,1,http://localhost:8000/api/v1/vehiculos/,103,0,0
+1764180067516,17,POST /vehiculos,200,OK,VehiclesCRUDStress 2-37,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,17,0,1
+1764180067533,105,GET /vehiculos,200,OK,VehiclesCRUDStress 2-37,text,true,,407747,160,1,1,http://localhost:8000/api/v1/vehiculos/,104,0,0
+1764180068121,25,POST /vehiculos,200,OK,VehiclesCRUDStress 2-38,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,25,0,2
+1764180068146,114,GET /vehiculos,200,OK,VehiclesCRUDStress 2-38,text,true,,407947,160,1,1,http://localhost:8000/api/v1/vehiculos/,112,0,0
+1764180068728,20,POST /vehiculos,200,OK,VehiclesCRUDStress 2-39,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,20,0,1
+1764180068749,101,GET /vehiculos,200,OK,VehiclesCRUDStress 2-39,text,true,,408147,160,1,1,http://localhost:8000/api/v1/vehiculos/,100,0,0
+1764180069321,17,POST /vehiculos,200,OK,VehiclesCRUDStress 2-40,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,17,0,2
+1764180069339,111,GET /vehiculos,200,OK,VehiclesCRUDStress 2-40,text,true,,408347,160,1,1,http://localhost:8000/api/v1/vehiculos/,111,0,0
+1764180069928,20,POST /vehiculos,200,OK,VehiclesCRUDStress 2-41,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,20,0,1
+1764180069948,84,GET /vehiculos,200,OK,VehiclesCRUDStress 2-41,text,true,,408547,160,1,1,http://localhost:8000/api/v1/vehiculos/,83,0,0
+1764180070520,22,POST /vehiculos,200,OK,VehiclesCRUDStress 2-42,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,22,0,2
+1764180070543,104,GET /vehiculos,200,OK,VehiclesCRUDStress 2-42,text,true,,408747,160,1,1,http://localhost:8000/api/v1/vehiculos/,102,0,0
+1764180071112,25,POST /vehiculos,200,OK,VehiclesCRUDStress 2-43,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,25,0,1
+1764180071138,109,GET /vehiculos,200,OK,VehiclesCRUDStress 2-43,text,true,,408947,160,1,1,http://localhost:8000/api/v1/vehiculos/,108,0,0
+1764180071721,20,POST /vehiculos,200,OK,VehiclesCRUDStress 2-44,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,20,0,2
+1764180071741,95,GET /vehiculos,200,OK,VehiclesCRUDStress 2-44,text,true,,409147,160,1,1,http://localhost:8000/api/v1/vehiculos/,94,0,0
+1764180072308,20,POST /vehiculos,200,OK,VehiclesCRUDStress 2-45,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,20,0,2
+1764180072328,104,GET /vehiculos,200,OK,VehiclesCRUDStress 2-45,text,true,,409347,160,1,1,http://localhost:8000/api/v1/vehiculos/,103,0,0
+1764180072918,25,POST /vehiculos,200,OK,VehiclesCRUDStress 2-46,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,25,0,2
+1764180072944,91,GET /vehiculos,200,OK,VehiclesCRUDStress 2-46,text,true,,409547,160,1,1,http://localhost:8000/api/v1/vehiculos/,90,0,0
+1764180073513,26,POST /vehiculos,200,OK,VehiclesCRUDStress 2-47,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,25,0,2
+1764180073539,115,GET /vehiculos,200,OK,VehiclesCRUDStress 2-47,text,true,,409747,160,1,1,http://localhost:8000/api/v1/vehiculos/,113,0,0
+1764180074122,20,POST /vehiculos,200,OK,VehiclesCRUDStress 2-48,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,20,0,2
+1764180074142,118,GET /vehiculos,200,OK,VehiclesCRUDStress 2-48,text,true,,409947,160,1,1,http://localhost:8000/api/v1/vehiculos/,117,0,0
+1764180074699,26,POST /vehiculos,200,OK,VehiclesCRUDStress 2-49,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,26,0,2
+1764180074726,132,GET /vehiculos,200,OK,VehiclesCRUDStress 2-49,text,true,,410147,160,1,1,http://localhost:8000/api/v1/vehiculos/,131,0,0
+1764180075295,22,POST /vehiculos,200,OK,VehiclesCRUDStress 2-50,text,true,,325,310,1,1,http://localhost:8000/api/v1/vehiculos/,22,0,2
+1764180075318,90,GET /vehiculos,200,OK,VehiclesCRUDStress 2-50,text,true,,410347,160,1,1,http://localhost:8000/api/v1/vehiculos/,89,0,0

@@ -1,0 +1,34 @@
+Sum responseCode;True/False;;;;;Labels;Suma de sentBytes;Suma de Latency;Suma de allThreads;Suma de grpThreads
+Response Code;false;true;Total general;;;DELETE Admin;40194;1288;541;541
+200;;360200;360200;;;DELETE Staff;40196;1292;547;547
+400;29200;;29200;;;DELETE Student;40396;1284;526;526
+403;171678;;171678;;;DELETE User;37042;1159;486;486
+Total general;200878;360200;561078;;;DELETE User (userId2);40137;1335;540;540
+;;;;;;GET Admin by ID;30894;1083;545;545
+;;;;;;GET All Admin;30800;1253;544;544
+Suma de responseCode;Response Code;;;;;GET All Staff;30800;1309;534;534
+Etiquetas de fila;200;400;403;Total general;;GET All Students;31000;1141;510;510
+DELETE Admin;14400;;11284;25684;;Get All Users;33400;1058;499;499
+DELETE Staff;14400;;11284;25684;;GET Staff by ID;30896;1066;541;541
+DELETE Student;14400;;11284;25684;;GET Student by ID;31096;1001;505;505
+DELETE User;11000;;18135;29135;;GET User By Identification;35900;1085;492;492
+DELETE User (userId2);14400;;11284;25684;;GET User ID;33200;1035;497;497
+GET Admin by ID;14400;;11284;25684;;Login;23500;50410;506;506
+GET All Admin;20000;;;20000;;POST Register Admin;41237;1244;543;543
+GET All Staff;20000;;;20000;;POST Register Staff;49137;1415;534;534
+GET All Students;20000;;;20000;;POST Register Student;63737;1313;505;505
+Get All Users;20000;;;20000;;POST Register User;59700;7970;519;519
+GET Staff by ID;14400;;11284;25684;;POST Register User (New User);66000;9973;505;505
+GET Student by ID;14400;;11284;25684;;PUT Update Staff;49333;1508;544;544
+GET User By Identification;20000;;;20000;;PUT Update Student;72533;1440;517;517
+GET User ID;20000;;;20000;;PUT Update User;66842;7877;487;487
+Login;20000;;;20000;;Total general;977970;99539;11967;11967
+POST Register Admin;14400;;11284;25684;;;;;;
+POST Register Staff;14400;;11284;25684;;;;;;
+POST Register Student;14400;;11284;25684;;;;;;
+POST Register User;11000;18000;;29000;;;;;;
+POST Register User (New User);14400;11200;;25600;;;;;;
+PUT Update Staff;14400;;11284;25684;;;;;;
+PUT Update Student;14400;;11284;25684;;;;;;
+PUT Update User;11000;;18135;29135;;;;;;
+Total general;360200;29200;171678;561078;;;;;;

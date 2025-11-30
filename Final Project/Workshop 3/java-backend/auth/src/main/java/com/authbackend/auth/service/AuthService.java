@@ -6,12 +6,10 @@ import com.authbackend.auth.repository.PersonRepository;
 import com.authbackend.auth.repository.AdministratorRepository;
 import com.authbackend.auth.repository.StaffRepository;
 import com.authbackend.auth.repository.StudentRepository;
+
 import org.springframework.security.core.userdetails.*;
-        import org.springframework.stereotype.Service;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import com.authbackend.auth.repository.PersonRepository;
 
 @Service
 public class AuthService implements UserDetailsService {
@@ -20,17 +18,20 @@ public class AuthService implements UserDetailsService {
     private final AdministratorRepository administratorRepository;
     private final StaffRepository staffRepository;
     private final StudentRepository studentRepository;
+    private final PasswordEncoder passwordEncoder; // <-- FALTABA ESTO
 
     public AuthService(
             PersonRepository personRepository,
             AdministratorRepository administratorRepository,
             StaffRepository staffRepository,
-            StudentRepository studentRepository
+            StudentRepository studentRepository,
+            PasswordEncoder passwordEncoder // <-- FALTABA RECIBIRLO
     ) {
         this.personRepository = personRepository;
         this.administratorRepository = administratorRepository;
         this.staffRepository = staffRepository;
         this.studentRepository = studentRepository;
+        this.passwordEncoder = passwordEncoder; // <-- Y FALTABA GUARDARLO
     }
 
     @Override
@@ -46,27 +47,27 @@ public class AuthService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado"));
 
         // 🔹 Determinar rol dinámico
-        String role = "USER"; // valor por defecto
+        String role = "USER";
 
         if (administratorRepository.existsByPerson(person)) {
             role = "ADMIN";
         } else if (staffRepository.existsByPerson(person)) {
             Staff staff = staffRepository.findByPerson(person);
             if (staff != null && staff.getTypeStaff() != null) {
-                role = staff.getTypeStaff().getType().toUpperCase(); // ej. "INSTRUCTOR" o "SECRETARY"
+                role = staff.getTypeStaff().getType().toUpperCase();
             } else {
                 role = "STAFF";
             }
         } else if (studentRepository.existsByPerson(person)) {
             role = "STUDENT";
         }
+
         System.out.println("Role: " + role);
 
         return User.builder()
                 .username(String.valueOf(person.getIdentificationNumber()))
-                .password(person.getPassword()) // encriptada con BCrypt
+                .password(person.getPassword()) // BCrypt OK
                 .roles(role)
                 .build();
     }
 }
-

@@ -2,13 +2,13 @@
 -- 1️⃣ Crear la base de datos
 -- (Docker lo maneja con MYSQL_DATABASE, pero es buena práctica)
 -- ------------------------------
-CREATE DATABASE IF NOT EXISTS DriverMaster;
-USE DriverMaster;
+CREATE DATABASE IF NOT EXISTS drivermaster;
+USE drivermaster;
 
 -- ------------------------------
 -- 2️⃣ Tabla IdentificationType
 -- ------------------------------
-CREATE TABLE IdentificationType (
+CREATE TABLE identificationtype (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     type VARCHAR(25) NOT NULL
 );
@@ -16,7 +16,7 @@ CREATE TABLE IdentificationType (
 -- ------------------------------
 -- 3️⃣ Tabla Person
 -- ------------------------------
-CREATE TABLE Person (
+CREATE TABLE person (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     identification_type_id BIGINT NOT NULL,
     identification_number BIGINT NOT NULL UNIQUE, -- Añadido UNIQUE
@@ -34,7 +34,7 @@ CREATE TABLE Person (
 -- ------------------------------
 -- 4️⃣ Tabla TypeStaff
 -- ------------------------------
-CREATE TABLE TypeStaff (
+CREATE TABLE typestaff (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     type VARCHAR(25) NOT NULL
 );
@@ -42,7 +42,7 @@ CREATE TABLE TypeStaff (
 -- ------------------------------
 -- 5️⃣ Tabla Staff
 -- ------------------------------
-CREATE TABLE Staff (
+CREATE TABLE staff (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     person_id BIGINT NOT NULL UNIQUE, -- Debe ser UNIQUE para un mapeo 1:1 con Person
     type_staff_id BIGINT NOT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE Staff (
 -- ------------------------------
 -- 6️⃣ Tabla Student
 -- ------------------------------
-CREATE TABLE Student (
+CREATE TABLE student (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     person_id BIGINT NOT NULL UNIQUE, -- Debe ser UNIQUE para un mapeo 1:1 con Person
     enrollment_date DATE NOT NULL,
@@ -79,7 +79,7 @@ CREATE TABLE Student (
 -- ------------------------------
 -- 7️⃣ Tabla Administrator
 -- ------------------------------
-CREATE TABLE Administrator (
+CREATE TABLE administrator (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     person_id BIGINT NOT NULL UNIQUE, -- Debe ser UNIQUE para un mapeo 1:1 con Person
     created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
@@ -92,41 +92,41 @@ CREATE TABLE Administrator (
 -- ------------------------------
 
 -- Datos básicos
-INSERT INTO IdentificationType (type) VALUES
+INSERT INTO identificationtype (type) VALUES
 ('Citizenship ID'),
 ('Foreigner ID'),
 ('Passport'),
 ('Identity Card');
 
-INSERT INTO TypeStaff (type) VALUES
+INSERT INTO typestaff (type) VALUES
 ('Secretary'),
 ('Instructor');
 
 -- 👤 Usuario 1: Cristian Parra (Administrador)
-INSERT INTO Person (identification_type_id, identification_number, first_name, last_name, password, email, phone, address, blood_type, eps)
+INSERT INTO person (identification_type_id, identification_number, first_name, last_name, password, email, phone, address, blood_type, eps)
 VALUES (1, 12345678, 'Cristian', 'Parra', '$2a$12$0W0293J1E616h2W32.9tV.f.T.d.B.2.c.6/lH/mB.1/Q0rS5c', -- ✅ Hash de '1234'
         'cristian@example.com', '3001234567', 'Calle 123 #45-67', 'O+', 'Sanitas');
 
 -- 👨‍💼 Asignar Rol de Administrador (ID 1 de Person)
-INSERT INTO Administrator (person_id)
+INSERT INTO administrator (person_id)
 VALUES (1);
 
 -- 🧑‍🏫 Usuario 2: Instructor (Ejemplo para Staff)
-INSERT INTO Person (identification_type_id, identification_number, first_name, last_name, password, email, phone, address, blood_type, eps)
+INSERT INTO person (identification_type_id, identification_number, first_name, last_name, password, email, phone, address, blood_type, eps)
 VALUES (1, 87654321, 'Laura', 'Gomez', '$2b$12$EjemploDeOtroHash',
         'laura.gomez@example.com', '3109876543', 'Avenida Principal 50', 'A-', 'Nueva EPS');
 
 -- 🧑‍🏫 Asignar Rol de Staff (ID 2 de Person, TypeStaff 2: Instructor)
-INSERT INTO Staff (person_id, type_staff_id, hire_date, salary)
+INSERT INTO staff (person_id, type_staff_id, hire_date, salary)
 VALUES (2, 2, '2025-01-15', 2500000.00);
 
 -- 📚 Usuario 3: Estudiante (Ejemplo para Student)
-INSERT INTO Person (identification_type_id, identification_number, first_name, last_name, password, email, phone, address, blood_type, eps)
+INSERT INTO person (identification_type_id, identification_number, first_name, last_name, password, email, phone, address, blood_type, eps)
 VALUES (1, 99887766, 'Andres', 'Rodriguez', '$2b$12$EjemploHashEstudiante',
         'andres.r@example.com', '3211230000', 'Carrera 10 #1-20', 'B+', 'Sura');
 
 -- 📚 Asignar Rol de Estudiante (ID 3 de Person)
-INSERT INTO Student (person_id, enrollment_date, license_category)
+INSERT INTO student (person_id, enrollment_date, license_category)
 VALUES (3, '2025-11-01', 'B1');
 
 -- ------------------------------

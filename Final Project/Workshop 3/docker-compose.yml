@@ -7,7 +7,7 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: DriverMaster  # ⚠️ Ahora coincide con tu SQL
+      MYSQL_DATABASE: drivermaster  # ⚠️ Ahora coincide con tu SQL
     ports:
       - "3307:3306"
     volumes:
@@ -28,6 +28,9 @@ services:
       - mongo_data:/data/db
     ports:
       - "27017:27017"
+    environment:
+      MONGO_URL: mongodb://mongo-fastapi:27017
+
 
   auth-backend:
     build: ./java-backend/auth
@@ -39,7 +42,7 @@ services:
       DB_HOST: mysql-drivermaster
       DB_USER: root
       DB_PASSWORD: root
-      DB_NAME: DriverMaster  # ⚠️ Coincide con la DB real
+      DB_NAME: drivermaster  # ⚠️ Coincide con la DB real
     ports:
       - "8083:8083"
     restart: always
@@ -68,3 +71,4 @@ services:
 volumes:
   mysql_data:
   mongo_data:
+

@@ -23,7 +23,10 @@ public class StaffController {
     @PostMapping("/register")
     public ResponseEntity<?> create(@RequestBody StaffRequest request) {
         try {
+            // El servicio ahora devuelve StaffResponseDTO (sin ciclos infinitos)
             StaffResponseDTO saved = staffService.createStaff(request);
+            
+            // Mantenemos tu estructura de respuesta con mensaje
             return ResponseEntity.ok(Map.of(
                     "message", "Staff creado exitosamente",
                     "staff", saved
@@ -36,16 +39,14 @@ public class StaffController {
     // ✅ READ ALL
     @GetMapping("/all")
     public ResponseEntity<List<StaffResponseDTO>> getAll() {
-        List<StaffResponseDTO> staffList = staffService.getAllStaff();
-        return ResponseEntity.ok(staffList);
+        return ResponseEntity.ok(staffService.getAllStaff());
     }
 
     // ✅ READ ONE
     @GetMapping("/{id}")
     public ResponseEntity<?> getOne(@PathVariable Long id) {
         try {
-            StaffResponseDTO staff = staffService.getStaffById(id);
-            return ResponseEntity.ok(staff);
+            return ResponseEntity.ok(staffService.getStaffById(id));
         } catch (RuntimeException e) {
             return ResponseEntity.status(404).body(Map.of("error", e.getMessage()));
         }

@@ -3,6 +3,7 @@ package com.authbackend.auth.service;
 import com.authbackend.auth.dto.RegisterRequest;
 import com.authbackend.auth.entity.IdentificationType;
 import com.authbackend.auth.entity.Person;
+import com.authbackend.auth.repository.IdentificationTypeRepository;
 import com.authbackend.auth.repository.PersonRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -13,10 +14,14 @@ import java.util.List;
 public class UserService {
 
     private final PersonRepository personRepository;
+    private final IdentificationTypeRepository typeRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public UserService(PersonRepository personRepository, PasswordEncoder passwordEncoder) {
+    public UserService(PersonRepository personRepository, 
+                       IdentificationTypeRepository typeRepository, 
+                       PasswordEncoder passwordEncoder) {
         this.personRepository = personRepository;
+        this.typeRepository = typeRepository;
         this.passwordEncoder = passwordEncoder;
     }
 
@@ -26,7 +31,13 @@ public class UserService {
             throw new RuntimeException("El usuario ya existe con ese número de identificación");
         }
 
+        // <--- 4. USARLO: Buscar el tipo real en la BD
+        IdentificationType idType = typeRepository.findById(request.getIdentificationTypeId())
+                .orElseThrow(() -> new RuntimeException("Tipo de identificación no encontrado"));
+
         Person person = new Person();
+        person.setIdentificationType(idType); // <--- 5. Asignar el objeto real
+        
         person.setIdentificationNumber(request.getIdentificationNumber());
         person.setFirstName(request.getFirstName());
         person.setLastName(request.getLastName());
@@ -36,7 +47,6 @@ public class UserService {
         person.setAddress(request.getAddress());
         person.setBloodType(request.getBloodType());
         person.setEps(request.getEps());
-        person.setIdentificationType(new IdentificationType(request.getIdentificationTypeId()));
 
         return personRepository.save(person);
     }

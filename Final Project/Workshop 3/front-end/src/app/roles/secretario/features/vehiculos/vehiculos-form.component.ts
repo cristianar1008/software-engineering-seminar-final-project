@@ -20,60 +20,60 @@ import { BreadcrumbsComponent } from 'src/app/shared/breadcrumbs.component';
   template: `
     <app-breadcrumbs [segments]="breadcrumbs"></app-breadcrumbs>
     <mat-card>
-      <mat-card-title>Secretario · {{ isEdit ? 'Editar' : 'Nuevo' }} Vehículo</mat-card-title>
-      <mat-card-subtitle>Complete los datos del vehículo</mat-card-subtitle>
+      <mat-card-title>Secretary · {{ isEdit ? 'Edit' : 'New' }} Vehicle</mat-card-title>
+      <mat-card-subtitle>Complete vehicle details</mat-card-subtitle>
 
       <form (ngSubmit)="guardar()" class="form-grid" novalidate>
         <mat-form-field appearance="outline">
-          <mat-label>Placa</mat-label>
+          <mat-label>License Plate</mat-label>
           <input matInput [(ngModel)]="form.placa" name="placa" required />
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label>Modelo (Año)</mat-label>
+          <mat-label>Model (Year)</mat-label>
           <mat-select [(ngModel)]="form.modelo" name="modelo" required>
             <mat-option *ngFor="let y of years" [value]="y">{{ y }}</mat-option>
           </mat-select>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label>Marca</mat-label>
+          <mat-label>Brand</mat-label>
           <mat-select [(ngModel)]="form.marca" name="marca" required>
             <mat-option *ngFor="let m of marcas" [value]="m">{{ m }}</mat-option>
           </mat-select>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label>Estado</mat-label>
+          <mat-label>Status</mat-label>
           <mat-select [(ngModel)]="form.estado" name="estado" required>
             <mat-option *ngFor="let e of estados" [value]="e">{{ e }}</mat-option>
           </mat-select>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label>Tipo Licencia</mat-label>
+          <mat-label>License Type</mat-label>
           <mat-select [(ngModel)]="form.tipo_licencia" name="tipo_licencia" required>
             <mat-option *ngFor="let t of tiposLicencia" [value]="t">{{ t }}</mat-option>
           </mat-select>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label>Fecha Registro</mat-label>
+          <mat-label>Registration Date</mat-label>
           <input matInput [matDatepicker]="pickerRegistro" [(ngModel)]="fechaRegistroDP" name="fecha_registro_dp" />
           <mat-datepicker-toggle matSuffix [for]="pickerRegistro"></mat-datepicker-toggle>
           <mat-datepicker #pickerRegistro></mat-datepicker>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
-          <mat-label>Fecha Salida</mat-label>
+          <mat-label>Departure Date</mat-label>
           <input matInput [matDatepicker]="pickerSalida" [(ngModel)]="fechaSalidaDP" name="fecha_salida_dp" />
           <mat-datepicker-toggle matSuffix [for]="pickerSalida"></mat-datepicker-toggle>
           <mat-datepicker #pickerSalida></mat-datepicker>
         </mat-form-field>
 
         <div style="margin-top: 12px;">
-          <button mat-raised-button color="primary" type="submit">{{ isEdit ? 'Actualizar' : 'Crear' }}</button>
-          <a mat-stroked-button color="primary" routerLink="/secretario/vehiculos" style="margin-left: 8px;">Cancelar</a>
+          <button mat-raised-button color="primary" type="submit">{{ isEdit ? 'Update' : 'Create' }}</button>
+          <a mat-stroked-button color="primary" routerLink="/secretario/vehiculos" style="margin-left: 8px;">Cancel</a>
         </div>
       </form>
     </mat-card>
@@ -94,7 +94,7 @@ export class VehiculosFormComponent implements OnInit {
     placa: '',
     modelo: '',
     marca: '',
-    estado: 'Bueno',
+    estado: 'Good', // Changed default to match translated array
     tipo_licencia: 'B1',
     fecha_registro: '',
     fecha_salida: '',
@@ -106,12 +106,13 @@ export class VehiculosFormComponent implements OnInit {
   marcas: string[] = [
     'Toyota','Chevrolet','Ford','Renault','Mazda','Nissan','Hyundai','Kia','Volkswagen','BMW','Mercedes-Benz','Audi','Peugeot','Citroën','Fiat','Jeep','Dodge','Subaru','Suzuki','SEAT','Skoda','Volvo','Land Rover','Mini','Mitsubishi','Honda','Porsche','Tesla','Ram','Chery','Great Wall','JAC','BYD','Foton','Isuzu','Cadillac','Chrysler'
   ];
-  estados: string[] = ['Malo','Regular','Bueno','Excelente'];
+  // Translated status options
+  estados: string[] = ['Bad','Regular','Good','Excellent'];
   tiposLicencia: string[] = ['A1','A2','B1','B2','B3','C1','C2','C3'];
   breadcrumbs = [
-    { label: 'Secretario', link: '/secretario/vehiculos' },
-    { label: 'Vehículos', link: '/secretario/vehiculos' },
-    { label: 'Nuevo' },
+    { label: 'Secretary', link: '/secretario/vehiculos' },
+    { label: 'Vehicles', link: '/secretario/vehiculos' },
+    { label: 'New' },
   ];
 
   // Simple grid styles for form
@@ -143,9 +144,9 @@ export class VehiculosFormComponent implements OnInit {
       this.isEdit = true;
       this.vehiculoId = Number(idParam);
       this.breadcrumbs = [
-        { label: 'Secretario', link: '/secretario/vehiculos' },
-        { label: 'Vehículos', link: '/secretario/vehiculos' },
-        { label: 'Editar' },
+        { label: 'Secretary', link: '/secretario/vehiculos' },
+        { label: 'Vehicles', link: '/secretario/vehiculos' },
+        { label: 'Edit' },
       ];
       this.service.getById(this.vehiculoId).subscribe({
         next: (v) => {
@@ -153,7 +154,7 @@ export class VehiculosFormComponent implements OnInit {
             placa: v.placa,
             modelo: v.modelo,
             marca: v.marca,
-            estado: v.estado,
+            estado: v.estado, // Note: Ensure backend returns English or map it if necessary
             tipo_licencia: v.tipo_licencia,
             fecha_registro: v.fecha_registro,
             fecha_salida: v.fecha_salida,
@@ -169,7 +170,7 @@ export class VehiculosFormComponent implements OnInit {
           // Fuerza la actualización visual en entorno zoneless
           this.cdRef.detectChanges();
         },
-      error: (err) => this.snack.open(`No se pudo cargar el vehículo: ${err?.error?.detail || err.message}`,'Cerrar',{ duration: 5000 }),
+      error: (err) => this.snack.open(`Could not load vehicle: ${err?.error?.detail || err.message}`,'Close',{ duration: 5000 }),
       });
     }
   }
@@ -177,7 +178,7 @@ export class VehiculosFormComponent implements OnInit {
   guardar() {
     const errores = this.validarFormulario();
     if (errores.length > 0) {
-      this.snack.open(errores.join('\n'), 'Cerrar', { duration: 5000, panelClass: ['mat-elevation-z4'] });
+      this.snack.open(errores.join('\n'), 'Close', { duration: 5000, panelClass: ['mat-elevation-z4'] });
       return;
     }
     if (this.isEdit && this.vehiculoId != null) {
@@ -195,7 +196,7 @@ export class VehiculosFormComponent implements OnInit {
           this.service.refresh();
           this.router.navigate(['/secretario/vehiculos']);
         },
-      error: (err) => this.snack.open(`Error al actualizar: ${err?.error?.detail || err.message}`,'Cerrar',{ duration: 5000 }),
+      error: (err) => this.snack.open(`Error updating: ${err?.error?.detail || err.message}`,'Close',{ duration: 5000 }),
       });
     } else {
       const payload: VehiculoCreate = {
@@ -212,7 +213,7 @@ export class VehiculosFormComponent implements OnInit {
           this.service.refresh();
           this.router.navigate(['/secretario/vehiculos']);
         },
-        error: (err) => this.snack.open(`Error al crear: ${err?.error?.detail || err.message}`,'Cerrar',{ duration: 5000 }),
+        error: (err) => this.snack.open(`Error creating: ${err?.error?.detail || err.message}`,'Close',{ duration: 5000 }),
       });
     }
   }
@@ -222,13 +223,13 @@ export class VehiculosFormComponent implements OnInit {
     // Placa: requerida y formato razonable (carro AAA123 o moto AAA12A)
     const placa = (this.form.placa || '').toString().trim().toUpperCase();
     if (!placa) {
-      msgs.push('La placa es requerida.');
+      msgs.push('License Plate is required.');
     } else {
       const carro = /^[A-Z]{3}\d{3}$/;
       const moto = /^[A-Z]{3}\d{2}[A-Z]$/;
       const mixto = /^[A-Z0-9-]{5,8}$/; // fallback menos estricto
       if (!(carro.test(placa) || moto.test(placa) || mixto.test(placa))) {
-        msgs.push('Formato de placa inválido (ej.: AAA123 o AAA12A).');
+        msgs.push('Invalid License Plate format (e.g., AAA123 or AAA12A).');
       }
       this.form.placa = placa;
     }
@@ -237,27 +238,27 @@ export class VehiculosFormComponent implements OnInit {
     const yStr = (this.form.modelo || '').toString().trim();
     const y = Number(yStr);
     if (!yStr) {
-      msgs.push('El modelo (año) es requerido.');
+      msgs.push('Model (Year) is required.');
     } else if (!Number.isFinite(y) || yStr.length !== 4) {
-      msgs.push('El modelo debe ser un año de 4 dígitos.');
+      msgs.push('Model must be a 4-digit year.');
     } else {
       const minY = 1990;
       const maxY = this.currentYear;
-      if (y < minY || y > maxY) msgs.push(`El modelo debe estar entre ${minY} y ${maxY}.`);
+      if (y < minY || y > maxY) msgs.push(`Model must be between ${minY} and ${maxY}.`);
     }
 
     // Marca, estado, tipo licencia: requeridos y dentro de listas
     const marca = (this.form.marca || '').toString().trim();
-    if (!marca) msgs.push('La marca es requerida.');
-    else if (!this.marcas.includes(marca)) msgs.push('La marca seleccionada no es válida.');
+    if (!marca) msgs.push('Brand is required.');
+    else if (!this.marcas.includes(marca)) msgs.push('Selected brand is invalid.');
 
     const estado = (this.form.estado || '').toString().trim();
-    if (!estado) msgs.push('El estado es requerido.');
-    else if (!this.estados.includes(estado)) msgs.push('El estado seleccionado no es válido.');
+    if (!estado) msgs.push('Status is required.');
+    else if (!this.estados.includes(estado)) msgs.push('Selected status is invalid.');
 
     const tipo = (this.form.tipo_licencia || '').toString().trim();
-    if (!tipo) msgs.push('El tipo de licencia es requerido.');
-    else if (!this.tiposLicencia.includes(tipo)) msgs.push('El tipo de licencia seleccionado no es válido.');
+    if (!tipo) msgs.push('License Type is required.');
+    else if (!this.tiposLicencia.includes(tipo)) msgs.push('Selected license type is invalid.');
 
     // Fechas: si existen, deben ser válidas; salida no antes de registro
     const regIso = this.toIsoOrUndefined(this.fechaRegistroDP ?? this.form.fecha_registro);
@@ -265,21 +266,21 @@ export class VehiculosFormComponent implements OnInit {
     const today = new Date();
     today.setHours(0,0,0,0);
     if (this.fechaRegistroDP || this.form.fecha_registro) {
-      if (!regIso) msgs.push('La fecha de registro no tiene un formato válido.');
+      if (!regIso) msgs.push('Registration date has an invalid format.');
       else {
         const d = new Date(regIso);
         const d0 = new Date(Date.UTC(d.getUTCFullYear(), d.getUTCMonth(), d.getUTCDate()));
-        if (d0.getTime() > today.getTime()) msgs.push('La fecha de registro no puede ser futura.');
+        if (d0.getTime() > today.getTime()) msgs.push('Registration date cannot be in the future.');
       }
     }
     if (this.fechaSalidaDP || this.form.fecha_salida) {
-      if (!salIso) msgs.push('La fecha de salida no tiene un formato válido.');
+      if (!salIso) msgs.push('Departure date has an invalid format.');
       else if (regIso) {
         const r = new Date(regIso);
         const s = new Date(salIso);
         const r0 = new Date(Date.UTC(r.getUTCFullYear(), r.getUTCMonth(), r.getUTCDate()));
         const s0 = new Date(Date.UTC(s.getUTCFullYear(), s.getUTCMonth(), s.getUTCDate()));
-        if (s0.getTime() < r0.getTime()) msgs.push('La fecha de salida no puede ser anterior a la de registro.');
+        if (s0.getTime() < r0.getTime()) msgs.push('Departure date cannot be before registration date.');
       }
     }
 

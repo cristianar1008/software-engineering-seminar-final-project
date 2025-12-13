@@ -77,6 +77,7 @@ CREATE TABLE student (
 
 
 -- ------------------------------
+
 -- 7️⃣ Tabla Administrator
 -- ------------------------------
 CREATE TABLE administrator (

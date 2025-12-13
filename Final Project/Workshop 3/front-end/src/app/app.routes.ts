@@ -20,7 +20,7 @@ export const routes: Routes = [
   },
   {
     path: 'secretario/instructores',
-    loadComponent: () => import('./roles/secretario/features/instructores').then(m => m.InstructoresComponent)
+    loadComponent: () => import('./roles/secretario/features/instructores').then(m => m.InstructoresFormComponent)
   },
   {
     path: 'secretario/asignar',

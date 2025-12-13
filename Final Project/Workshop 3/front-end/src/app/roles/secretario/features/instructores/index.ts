@@ -1,1 +1,1 @@
-export * from './instructores.component';
+export * from './instructores-form.component';

@@ -1,4 +1,4 @@
-// src/app/components/navbar/navbar.component.ts (AJUSTE DE ANCHO)
+// src/app/components/navbar/navbar.component.ts
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -8,55 +8,54 @@ import { MatIconModule } from '@angular/material/icon';
 import { AuthService } from '../services/auth';
 
 @Component({
-  selector: 'app-navbar',
-  standalone: true,
-  imports: [CommonModule, RouterModule, MatToolbarModule, MatButtonModule, MatIconModule],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  template: `<mat-toolbar color="primary" class="navbar app-toolbar">
-   <div class="brand">
-     <a routerLink="/admin" class="brand-link">
-        <div class="brand">
-<!--           <mat-icon class="brand-icon">drive_eta</mat-icon>  -->
-                    <img src="assets/logo.png" alt="Logo" class="logo"/> 
-        </div>
-      </a></div>
-   <span class="spacer"></span>
-   <nav class="nav-links">
+  selector: 'app-navbar',
+  standalone: true,
+  imports: [CommonModule, RouterModule, MatToolbarModule, MatButtonModule, MatIconModule],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  template: `<mat-toolbar color="primary" class="navbar app-toolbar">
+    <div class="brand">
+      <a routerLink="/admin" class="brand-link">
+        <div class="brand">
+<img src="assets/logo.png" alt="Logo" class="logo"/> 
+        </div>
+      </a></div>
+    <span class="spacer"></span>
+    <nav class="nav-links">
 
-     <a mat-button routerLink="/secretario/vehiculos" routerLinkActive="active">
-       <mat-icon>directions_car</mat-icon>
-       <span>Vehículos</span>
-     </a>
-     <a mat-button routerLink="/secretario/instructores" routerLinkActive="active">
-       <mat-icon>school</mat-icon>
-       <span>Instructores</span>
-     </a>
-        <a mat-button routerLink="/administrador/asignar" routerLinkActive="active">
-          <mat-icon>assignment_ind</mat-icon>
-          <span>Asignar</span>
-        </a>
+      <a mat-button routerLink="/secretario/vehiculos" routerLinkActive="active">
+        <mat-icon>directions_car</mat-icon>
+        <span>Vehicles</span>
+      </a>
+      <a mat-button routerLink="/secretario/instructores" routerLinkActive="active">
+        <mat-icon>school</mat-icon>
+        <span>Instructors</span>
+      </a>
+      <a mat-button routerLink="/administrador/asignar" routerLinkActive="active">
+         <mat-icon>assignment_ind</mat-icon>
+         <span>Assign</span>
+      </a>
 
-        <button mat-flat-button color="accent" (click)="logout()">
-          <mat-icon>exit_to_app</mat-icon>
-          <span>Cerrar Sesión</span>
-        </button>
-      </nav>
-    </mat-toolbar>
-  `,
-  styles: [`
+      <button mat-flat-button color="accent" (click)="logout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
+      </button>
+    </nav>
+  </mat-toolbar>
+  `,
+  styles: [`
     .navbar { 
         position: sticky; 
         top: 0; 
         z-index: 1000; 
-        padding: 0;/* REDUCIDO */
+        padding: 0;
     }
     .brand-link {
-        text-decoration: none; /* Quitar subrayado del enlace */
-        color: white; /* Asegurar color blanco */
+        text-decoration: none;
+        color: white;
         cursor: pointer;
     }
     .logo{
-     height:var(--mat-toolbar-standard-height, 64px);
+      height:var(--mat-toolbar-standard-height, 64px);
       margin-top:-10%;
       width: auto;
     }
@@ -92,11 +91,11 @@ import { AuthService } from '../services/auth';
 `]
 })
 export class NavbarComponent {
-  private authService = inject(AuthService);
+  private authService = inject(AuthService);
 
-  logout(): void {
-    if (confirm('¿Estás seguro de que quieres cerrar la sesión?')) {
-      this.authService.logout();
-    }
-  }
+  logout(): void {
+    if (confirm('Are you sure you want to log out?')) {
+      this.authService.logout();
+    }
+  }
 }

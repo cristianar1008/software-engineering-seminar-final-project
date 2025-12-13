@@ -14,11 +14,6 @@ services:
       - mysql_data:/var/lib/mysql
       - ./mysql-init:/docker-entrypoint-initdb.d
       - ./DriverMaster.sql:/docker-entrypoint-initdb.d/DriverMaster.sql
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-uroot", "-proot"]
-      interval: 5s
-      timeout: 3s
-      retries: 10
 
   mongo-fastapi:
     image: mongo:7
@@ -36,8 +31,7 @@ services:
     build: ./java-backend/auth
     container_name: auth-backend
     depends_on:
-      mysql-drivermaster:
-        condition: service_healthy
+      - mysql-drivermaster
     environment:
       DB_HOST: mysql-drivermaster
       DB_USER: root

@@ -1,4 +1,5 @@
 import { TestBed } from '@angular/core/testing';
+import { provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideHttpClient } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
@@ -9,6 +10,8 @@ describe('App', () => {
     await TestBed.configureTestingModule({
       imports: [App],
       providers: [
+        provideBrowserGlobalErrorListeners(),
+        provideZonelessChangeDetection(),
         provideRouter([]),
         provideHttpClient(),
         provideAnimations()

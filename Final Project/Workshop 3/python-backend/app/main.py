@@ -54,6 +54,8 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:4200",      # Angular en host
         "http://127.0.0.1:4200",      # Angular en host
+        "http://localhost:4201",      # Angular en host (puerto alternativo)
+        "http://127.0.0.1:4201",      # Angular en host (puerto alternativo)
         "http://angular-frontend:80", # Angular en contenedor
     ],
     allow_credentials=True,
